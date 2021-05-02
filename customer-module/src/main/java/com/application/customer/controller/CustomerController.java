@@ -32,17 +32,17 @@ public class CustomerController {
     @GetMapping("/add")
     public String getForm(Model model){
         model.addAttribute("customer",new Customer());
-        return "customer-registration";
+        return "validationFormPage";
     }
 
     @PostMapping("/process")
     public String processForm(@Valid @ModelAttribute("customer") Customer customer, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()){
             model.addAttribute("hasError", bindingResult.hasErrors());
-            return "customer-registration";
+            return "validationFormPage";
         } else {
             customerService.createCustomer(customer);
-            return "customer-confirmation";
+            return "validationDetailsPage";
         }
     }
 

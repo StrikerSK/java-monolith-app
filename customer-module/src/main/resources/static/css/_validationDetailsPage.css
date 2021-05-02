@@ -1,0 +1,58 @@
+body{
+    margin: 0 !important;
+
+    background: url("../image/customer-reg.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: wheat;
+
+    display: grid;
+    height: 100vh;
+    justify-items: center;
+    align-items: center;
+}
+
+/*Confirmation page of customer registration form*/
+.detailsBox{
+    width: 27.5%;
+    margin: 0 auto;
+    align-content: center;
+    background: rgba(50, 29, 38, 0.2);
+    padding-bottom: 1%;
+}
+
+.detailsBox h1{
+    text-align: center;
+    font-size: 4rem;
+}
+
+td, .CustomerLink a {
+    font-size: 1.8rem;
+}
+
+div.ConfirmTable{
+    width: 75%;
+    margin: auto;
+}
+
+.ConfirmTable td:nth-child(1){
+    padding-right: 20px;
+}
+
+.CustomerLink{
+    display: flex;
+    justify-content: space-evenly;
+
+    margin: auto;
+    text-align: center;
+}
+
+.CustomerLink a{
+    color: wheat;
+}
+
+.CustomerLink a:hover{
+    color: red;
+}

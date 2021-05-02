@@ -11,6 +11,6 @@ public class CustomerMockedService implements ICustomerService {
 	Logger LOG = LoggerFactory.getLogger(CustomerMockedService.class);
 
 	public void createCustomer(Customer customer) {
-		LOG.info("createCustomer(): {}", customer);
+		LOG.info("createCustomer(): {}", customer.toString());
 	}
 }

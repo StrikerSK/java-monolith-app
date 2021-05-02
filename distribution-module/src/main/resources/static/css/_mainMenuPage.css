@@ -1,9 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Mali');
-
-*{
+* {
     color: #EAF0CE;
-    font-family: 'Montserrat', sans-serif;
-
 }
 
 body{
@@ -35,12 +31,13 @@ h1{
 }
 
 .main-text h1{
-    font-size: 60px;
+    font-size: 5.8rem;
     text-align: center;
 }
 
-.main-text > div > p {
-    font-size: 32px;
+.main-text p {
+    font-size: 2rem;
+    text-align: center;
 }
 
 .main-links{

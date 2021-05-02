@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>Customer confirmation</title>
-        <link th:href="@{/css/customer-registration.css}" rel="stylesheet" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Customer confirmation</title>
+
+        <link th:href="@{/css/_base.css}" rel="stylesheet" />
+        <link th:href="@{/css/_validationDetailsPage.css}" rel="stylesheet" />
+        <link th:href="@{/css/navigation-bar.css}" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script type="text/javascript" th:src="@{/js/navigation-bar.js}"></script>
     </head>
 
     <body>
-        <div class="MainTextCustomerConfirm">
-            <h1>Customer credentials</h1>
+        <div class="detailsBox">
+            <h1>Validation details</h1>
             <div class="ConfirmTable">
                 <table>
                     <tr>
-                        <td>Customer name:</td>
-                        <td th:text="${customer.firstName} ${customer.lastName}"></td>
+                        <td>Name:</td>
+                        <td th:text="${customer.firstName} + ' ' + ${customer.lastName}"></td>
                     </tr>
                     <tr>
-                        <td>Customer ID:</td>
+                        <td>ID:</td>
                         <td th:text="${customer.sumNum}"></td>
                     </tr>
                     <tr>
@@ -35,6 +40,7 @@
             </div>
             <br/>
             <div class="CustomerLink">
+                <a href="/customer/add" class="Link2">Try new customer!</a>
                 <a href="/" class="Link2">Go to main menu!</a>
             </div>
         </div>
