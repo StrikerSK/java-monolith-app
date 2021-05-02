@@ -1,0 +1,224 @@
+body{
+    background: url('/jsp/image/sum-image.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: wheat;
+}
+
+/*Student registration form*/
+.RegisterPage{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.RegisterPage h1{
+    text-align: center;
+    width: 100%;
+    margin: 5% auto;
+}
+
+.countryOption, .inputText, .facultyOption, .universityOptions, .select-options{
+    width: 40%;
+    margin: 0 auto;
+}
+
+/* Start - links section */
+.links{
+    text-align: center;
+    width: 15%;
+    margin: 0 auto;
+}
+
+.links a{
+    color: wheat;
+}
+
+.links a:hover{
+    color: red;
+}
+/* End */
+
+/* Start - language radiobutton section */
+.language-label{
+    height: 30px;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.radio-label {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 5%;
+}
+
+.radio-input {
+    display: inline-block;
+    vertical-align: top;
+}
+
+fieldset {
+    width: 70%;
+    margin: 0 auto;
+    padding: 0;
+    border-radius: 12px;
+}
+
+.language-options {
+    display: inline-block;
+    margin: auto;
+}
+
+.radio-button-grid{
+    margin: 0;
+}
+
+.language-option-section li{
+    display: block;
+    float: left;
+    width: 20%;
+}
+/* end */
+
+.submit-container{
+    width: 25%;
+    margin: 10px auto 0;
+}
+
+.submit-container #submit-button{
+    width: 100%;
+    padding: 12px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=text], select{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+@media screen and (max-width: 480px) {
+
+    .RegisterPage, .RegisterForm, .links, .inputText, .countryOption, .ConfBody, .language-option-section .language-label, .facultyOption, .universityOptions, .select-options{
+        width: 97%;
+        margin: 0 auto;
+    }
+
+    .language-option-section ul{
+        width: 100%;
+        padding: 0;
+        margin: 0 0 0;
+    }
+
+    .language-option-section li{
+        width: 33%;
+    }
+
+    .submit-container{
+        width: 50%;
+        margin: 15px auto 0;
+    }
+
+    fieldset{
+        width: 100%;
+    }
+
+}
+
+@media screen and (min-width: 481px) and (max-width: 920px) {
+
+    .RegisterPage, .RegisterForm, .links, .inputText, .countryOption, .ConfBody, .language-option-section .language-label, .facultyOption, .universityOptions, .select-options{
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .language-option-section ul{
+        width: 100%;
+        padding: 0;
+        margin: 0 0 0;
+    }
+
+    .language-option-section li{
+        width: 33%;
+    }
+
+    .submit-container{
+        width: 50%;
+        margin: 15px auto 0;
+    }
+
+    fieldset{
+        width: 100%;
+    }
+
+}
+
+
+/*Student confirmation*/
+.ConfBody{
+    width: 40%;
+    margin: 0 auto;
+}
+
+.ConfPanel{
+    width: 75%;
+    margin: 0 auto 20px;
+}
+
+.ConfPanel td{
+    padding: 3px;
+    font-size: 20px;
+}
+
+.column1 td{
+    width: 20%
+}
+
+.column2 td{
+    width: 80%
+}
+
+.ConfLinks{
+    font-size: 20px;
+    text-align: center;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.ConfLinks a{
+    color: wheat;
+}
+
+.ConfLinks a:hover{
+    color: red;
+}
+
+h1{
+    text-align: center;
+    font-size: 50px;
+}
+
+@media screen and (max-width: 480px) {
+
+
+    h1{
+        font-size: 30px;
+    }
+
+    .ConfPanel td, .ConfLinks{
+        font-size: 15px;
+    }
+
+    .ConfBody, .ConfPanel{
+        width: 100%;
+    }
+
+}

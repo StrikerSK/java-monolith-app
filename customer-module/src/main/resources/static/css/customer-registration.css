@@ -1,0 +1,129 @@
+/*General stuff of customer form*/
+body{
+    background: url("/jsp/image/customer-reg.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: wheat;
+}
+
+/*Registration page of customer registration form*/
+.MainText{
+    width: 27.5%;
+    margin: 0 auto;
+    align-content: center;
+    background: rgba(50, 29, 38, 0.3);
+    padding-bottom: 1%;
+}
+
+.MainText h1{
+    text-align: center;
+}
+
+.MainText a{
+    position: relative;
+    left: 30%;
+    color: bisque;
+}
+
+.MainText a:hover{
+    color: wheat;
+}
+
+.RegForm{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.SubmitButt{
+    margin-left: 30%;
+}
+
+.inputs input[type=text], .inputs select{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+.hasError {
+    color: red;
+    display:block;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.noError {
+    display: none
+}
+
+/*Confirmation page of customer registration form*/
+.MainTextCustomerConfirm{
+    width: 27.5%;
+    margin: 0 auto;
+    align-content: center;
+    background: rgba(50, 29, 38, 0.2);
+    padding-bottom: 1%;
+}
+
+div.ConfirmTable{
+    width: 75%;
+    margin: auto;
+}
+
+.MainTextCustomerConfirm h1{
+    text-align: center;
+}
+
+.ConfirmTable td:nth-child(1){
+    padding-right: 20px;
+}
+
+.CustomerLink{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+.CustomerLink a{
+    color: wheat;
+}
+
+.CustomerLink a:hover{
+    color: red;
+}
+
+@media screen and (max-width: 480px) {
+
+    /*Registration page of customer registration form*/
+    .MainText{
+        width: 90%;
+        margin: 0 auto;
+        align-content: center;
+    }
+
+    .MainText h1{
+        text-align: center;
+    }
+
+    .MainText a{
+        position: relative;
+        left: 30%;
+        color: black;
+    }
+
+    .MainText a:hover{
+        color: wheat;
+    }
+
+    .RegForm{
+        width: 90%;
+        margin: 0 auto;
+    }
+
+}

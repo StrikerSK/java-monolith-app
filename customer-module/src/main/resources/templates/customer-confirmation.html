@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Customer confirmation</title>
+        <link href="/static/css/customer-registration.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+        <div class="MainTextCustomerConfirm">
+            <h1>Customer credentials</h1>
+            <div class="ConfirmTable">
+                <table>
+                    <tr>
+                        <td>Customer name:</td>
+                        <td th:text="${customer.firstName} ${customer.lastName}"></td>
+                    </tr>
+                    <tr>
+                        <td>Customer ID:</td>
+                        <td th:text="${customer.sumNum}"></td>
+                    </tr>
+                    <tr>
+                        <td>Free passes:</td>
+                        <td th:text="${customer.freePassess}"></td>
+                    </tr>
+                    <tr>
+                        <td>Postal code:</td>
+                        <td th:text="${customer.postalCode}"></td>
+                    </tr>
+                    <tr>
+                        <td>Course code:</td>
+                        <td th:text="${customer.courseCode}"></td>
+                    </tr>
+                </table>
+            </div>
+            <br/>
+            <div class="CustomerLink">
+                <a href="/" class="Link2">Go to main menu!</a>
+            </div>
+        </div>
+    </body>
+</html>

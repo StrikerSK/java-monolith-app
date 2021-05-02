@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Customer registration</title>
+
+        <link href="/static/css/customer-registration.css" rel="stylesheet" type="text/css">
+        <link href="/static/css/navigation-bar.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="/static/js/navigation-bar.js" type="text/javascript" rel="script"></script>
+    </head>
+
+    <body>
+
+        <div class="navbar" id="myTopnav">
+            <a href="/">Home</a>
+            <a href="/other/BMR">BMR</a>
+            <a href="/other/bmrjava">BMR (Java)</a>
+            <a href="/student/list">Student page</a>
+            <div class="dropdown">
+                <button class="dropbtn">User page
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/user/list">User list</a>
+                    <a href="/user/registerUser">User registration</a>
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="icon" onclick="makeResponsive()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+        <div class="MainText">
+            <h1>This form registers new customer!</h1>
+            <div class="RegForm">
+                <i>Fill out the form. Asterisk (*) means required.</i>
+                <h1>Add exercise</h1>
+                <form action="#" method="post" th:action="/processForm" th:object="${customer}">
+                    <div class="inputs">
+                        <label for="firstName"><span>Customer name:</span></label>
+                        <input id="firstName" type="text" name="name" th:field="*{firstName}" required/>
+                        <label th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Name Error</label>
+
+                        <label for="lastName"><span>Customer surname:</span></label>
+                        <input id="lastName" type="text" name="name" th:field="*{lastName}" required/>
+                        <label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Name Error</label>
+
+                        <label for="freePasses"><span>Customer free passes:</span></label>
+                        <input id="freePasses" type="text" name="freePasses" th:field="*{freePassess}" required/>
+                        <label th:if="${#fields.hasErrors('freePasses')}" th:errors="*{freePassess}">Name Error</label>
+
+                        <label for="postalCode"><span>Customer free passes:</span></label>
+                        <input id="postalCode" type="text" name="freePasses" th:field="*{postalCode}" required/>
+                        <label th:if="${#fields.hasErrors('postalCode')}" th:errors="*{postalCode}">Name Error</label>
+
+                        <label for="courseCode"><span>Customer free passes:</span></label>
+                        <input id="courseCode" type="text" name="courseCode" th:field="*{courseCode}" required/>
+                        <label th:if="${#fields.hasErrors('courseCode')}" th:errors="*{courseCode}">Name Error</label>
+                    </div>
+                    <input type="submit" value="Submit customer" class="SubmitButt">
+                </form>
+            </div>
+        </div>
+    </body>
+
+</html>
