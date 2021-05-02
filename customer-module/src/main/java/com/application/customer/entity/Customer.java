@@ -12,14 +12,14 @@ import java.util.Random;
 public class Customer {
     private String firstName;
 
-    @NotNull(message = "Reguired")
+    @NotNull(message = "Required")
     @Size(min = 1,message = "is required")
     private String lastName;
 
     @NotNull(message = "Reguired")
     @Min(value = 0, message = "The number must be more than zero")
     @Max(value = 10, message = "The number must be less than ten")
-    private Integer freePassess;
+    private Integer freePasses;
 
     @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "5 chars/digits only")
     private String postalCode;
@@ -57,12 +57,12 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public Integer getFreePassess() {
-        return freePassess;
+    public Integer getFreePasses() {
+        return freePasses;
     }
 
-    public void setFreePassess(Integer freePassess) {
-        this.freePassess = freePassess;
+    public void setFreePasses(Integer freePasses) {
+        this.freePasses = freePasses;
     }
 
     public String getPostalCode() {

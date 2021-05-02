@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>Customer confirmation</title>
-        <link href="/static/css/customer-registration.css" rel="stylesheet">
+        <link th:href="@{/css/customer-registration.css}" rel="stylesheet" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
@@ -21,7 +21,7 @@
                     </tr>
                     <tr>
                         <td>Free passes:</td>
-                        <td th:text="${customer.freePassess}"></td>
+                        <td th:text="${customer.freePasses}"></td>
                     </tr>
                     <tr>
                         <td>Postal code:</td>

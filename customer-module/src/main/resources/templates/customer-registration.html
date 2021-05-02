@@ -4,10 +4,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Customer registration</title>
 
-        <link href="/static/css/customer-registration.css" rel="stylesheet" type="text/css">
-        <link href="/static/css/navigation-bar.css" rel="stylesheet" type="text/css">
+        <link th:href="@{/css/customer-registration.css}" rel="stylesheet" />
+        <link th:href="@{/css/navigation.css}" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="/static/js/navigation-bar.js" type="text/javascript" rel="script"></script>
+        <script type="text/javascript" th:src="@{/js/navigation-bar.js}"></script>
     </head>
 
     <body>
@@ -36,27 +36,27 @@
             <div class="RegForm">
                 <i>Fill out the form. Asterisk (*) means required.</i>
                 <h1>Add exercise</h1>
-                <form action="#" method="post" th:action="/processForm" th:object="${customer}">
+                <form action="#" method="post" th:action="@{/customer/process}" th:object="${customer}">
                     <div class="inputs">
                         <label for="firstName"><span>Customer name:</span></label>
                         <input id="firstName" type="text" name="name" th:field="*{firstName}" required/>
-                        <label th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Name Error</label>
+                        <label th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First name Error</label>
 
                         <label for="lastName"><span>Customer surname:</span></label>
                         <input id="lastName" type="text" name="name" th:field="*{lastName}" required/>
-                        <label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Name Error</label>
+                        <label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Surname Error</label>
 
                         <label for="freePasses"><span>Customer free passes:</span></label>
-                        <input id="freePasses" type="text" name="freePasses" th:field="*{freePassess}" required/>
-                        <label th:if="${#fields.hasErrors('freePasses')}" th:errors="*{freePassess}">Name Error</label>
+                        <input id="freePasses" type="number" name="freePasses" th:field="*{freePasses}" required/>
+                        <label th:if="${#fields.hasErrors('freePasses')}" th:errors="*{freePasses}">Free Passess Error</label>
 
                         <label for="postalCode"><span>Customer free passes:</span></label>
                         <input id="postalCode" type="text" name="freePasses" th:field="*{postalCode}" required/>
-                        <label th:if="${#fields.hasErrors('postalCode')}" th:errors="*{postalCode}">Name Error</label>
+                        <label th:if="${#fields.hasErrors('postalCode')}" th:errors="*{postalCode}">Postal Code Error</label>
 
                         <label for="courseCode"><span>Customer free passes:</span></label>
                         <input id="courseCode" type="text" name="courseCode" th:field="*{courseCode}" required/>
-                        <label th:if="${#fields.hasErrors('courseCode')}" th:errors="*{courseCode}">Name Error</label>
+                        <label th:if="${#fields.hasErrors('courseCode')}" th:errors="*{courseCode}">Course Code Error</label>
                     </div>
                     <input type="submit" value="Submit customer" class="SubmitButt">
                 </form>

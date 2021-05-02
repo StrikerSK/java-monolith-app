@@ -1,6 +1,8 @@
 package com.application.customer.controller;
 
 import com.application.customer.entity.Customer;
+import com.application.customer.service.ICustomerService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,9 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 
+@AllArgsConstructor
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {
+
+    private final ICustomerService customerService;
 
     @InitBinder
     public void initBinder(WebDataBinder dataBinder){
@@ -25,17 +30,18 @@ public class CustomerController {
     }
 
     @GetMapping("/add")
-    public String getForm(Model theModel){
-        theModel.addAttribute("customer",new Customer());
+    public String getForm(Model model){
+        model.addAttribute("customer",new Customer());
         return "customer-registration";
     }
 
-    @PostMapping("/processForm")
-    public String processForm(@Valid @ModelAttribute("customer") Customer theCustomer, BindingResult bindingResult, Model model){
+    @PostMapping("/process")
+    public String processForm(@Valid @ModelAttribute("customer") Customer customer, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()){
             model.addAttribute("hasError", bindingResult.hasErrors());
             return "customer-registration";
         } else {
+            customerService.createCustomer(customer);
             return "customer-confirmation";
         }
     }
