@@ -8,13 +8,13 @@ body{
 }
 
 /*Nastavenie formatovania kaskady pre mobil*/
-.grid-container{
+.grid-container {
     height: 100vh;
     width: 100vw;
     display: grid;
 
-    grid-template-columns: 20px 0.65fr 15px 0.35fr 20px;
-    grid-template-rows: 20px minmax(10px, max-content) 1fr 20px;
+    grid-template-columns: 1.6rem 0.65fr 1.2rem 0.35fr 1.6rem;
+    grid-template-rows: 1.6rem 1fr 1fr 1.6rem;
 }
 
 .main-text{
@@ -26,14 +26,16 @@ body{
 }
 
 .main-text h1{
-    font-size: 5.8rem;
+    font-size: 6rem;
     text-align: center;
     animation: colorchange 6s linear infinite;
+    margin: 0 0 1.6rem;
 }
 
 .main-text p {
-    font-size: 2rem;
+    font-size: 2.5rem;
     text-align: center;
+    margin: 0;
 }
 
 .main-links{
@@ -57,7 +59,7 @@ body{
     margin-bottom: 1.5rem;
 }
 
-@media all and (max-device-width : 1020px){
+@media all and (max-width : 1023px){
 
     .main-text {
         grid-column: 2/5;
@@ -68,12 +70,13 @@ body{
     }
 
     .main-text h1{
-        font-size: 4rem;
+        font-size: 5rem;
     }
 
     .main-text > div > p {
         text-align: center;
-        font-size: 1.8rem;
+        font-size: 2.5rem;
+        margin: 4rem 0;
     }
 
     .main-links {
@@ -84,8 +87,8 @@ body{
     }
 
     .redirect-link {
-        margin-bottom: 0.5rem;
-        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        font-size: 2.5rem;
     }
 }
 

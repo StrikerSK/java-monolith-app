@@ -8,16 +8,16 @@ public class CourseCodeConstraintValidator implements ConstraintValidator<Course
     private String coursePrefix;
 
     @Override
-    public void initialize(CourseCode theCourseCode) {
-        coursePrefix = theCourseCode.value();
+    public void initialize(CourseCode courseCode) {
+        coursePrefix = courseCode.value();
     }
 
     @Override
-    public boolean isValid(String theCode, ConstraintValidatorContext constraintValidatorContext) {
+    public boolean isValid(String inputCode, ConstraintValidatorContext constraintValidatorContext) {
         boolean result;
 
         try {
-            result = theCode.startsWith(coursePrefix);
+            result = inputCode.startsWith(coursePrefix);
         } catch (NullPointerException e){
             result = true;
         }

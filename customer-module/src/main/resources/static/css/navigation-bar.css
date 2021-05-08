@@ -73,13 +73,13 @@
     display: block;
 }
 
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 768px) {
     .navbar {
         height: 5vh;
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 767px) {
     .navbar.responsive {position: relative;}
     .navbar.responsive .icon {
         height: auto;

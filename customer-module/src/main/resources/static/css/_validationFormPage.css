@@ -89,7 +89,7 @@ body {
     display: none
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 767px) {
 
     /*Registration page of customer registration form*/
     .MainText{

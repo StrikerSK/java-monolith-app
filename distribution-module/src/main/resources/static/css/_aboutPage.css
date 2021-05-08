@@ -56,7 +56,7 @@ body{
     font-size: 1.8rem;
 }
 
-@media screen and (max-device-width: 600px) {
+@media screen and (max-device-width: 767px) {
 
     .MainText{
         grid-column: 2 / 4;
