@@ -33,33 +33,47 @@
         </div>
 
         <div class="MainText">
-            <h1>Validation Form</h1>
-            <div class="RegForm">
-                <i>Fill out the form. Asterisk (*) means required.</i>
-                <form action="#" method="post" th:action="@{/customer/process}" th:object="${customer}">
-                    <div class="inputs">
-                        <label for="firstName"><span>First name:</span></label>
-                        <input id="firstName" type="text" name="name" th:field="*{firstName}" required/>
-                        <label th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="hasError">First name Error</label>
+            <div class="form-box">
+                <h1>Validation Form</h1>
+                <div class="RegForm">
+                    <i>Fill out the form. Asterisk (*) means required.</i>
+                    <form action="#" method="post" th:action="@{/validation/process}" th:object="${customer}">
+                        <div class="inputs">
+                            <div class="inputs__field">
+                                <label for="firstName"><span>First name:</span></label>
+                                <input id="firstName" type="text" name="name" th:field="*{firstName}" required/>
+                                <label th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="hasError">First name Error</label>
+                            </div>
 
-                        <label for="lastName"><span>Last name:</span></label>
-                        <input id="lastName" type="text" name="name" th:field="*{lastName}" required/>
-                        <label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="hasError">Surname Error</label>
+                            <div class="inputs__field">
+                                <label for="lastName"><span>Last name:</span></label>
+                                <input id="lastName" type="text" name="name" th:field="*{lastName}" required/>
+                                <label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="hasError">Surname Error</label>
+                            </div>
 
-                        <label for="freePasses"><span>Free passes:</span></label>
-                        <input id="freePasses" type="number" name="freePasses" th:field="*{freePasses}" required/>
-                        <label th:if="${#fields.hasErrors('freePasses')}" th:errors="*{freePasses}" class="hasError">Free Passess Error</label>
+                            <div class="inputs__field">
+                                <label for="freePasses"><span>Free passes:</span></label>
+                                <input id="freePasses" type="number" name="freePasses" th:field="*{freePasses}" required/>
+                                <label th:if="${#fields.hasErrors('freePasses')}" th:errors="*{freePasses}" class="hasError">Free Passes Error</label>
+                            </div>
 
-                        <label for="postalCode"><span>Postal code:</span></label>
-                        <input id="postalCode" type="text" name="postalCode" th:field="*{postalCode}" required/>
-                        <label th:if="${#fields.hasErrors('postalCode')}" th:errors="*{postalCode}" class="hasError">Postal Code Error</label>
+                            <div class="inputs__field">
+                                <label for="postalCode"><span>Postal code:</span></label>
+                                <input id="postalCode" type="text" name="postalCode" th:field="*{postalCode}" required/>
+                                <label th:if="${#fields.hasErrors('postalCode')}" th:errors="*{postalCode}" class="hasError">Postal Code Error</label>
+                            </div>
 
-                        <label for="courseCode"><span>Course code:</span></label>
-                        <input id="courseCode" type="text" name="courseCode" th:field="*{courseCode}" required/>
-                        <label th:if="${#fields.hasErrors('courseCode')}" th:errors="*{courseCode}" class="hasError">Course Code Error</label>
-                    </div>
-                    <input type="submit" value="Submit customer" class="SubmitButt">
-                </form>
+                            <div class="inputs__field">
+                                <label for="courseCode"><span>Course code:</span></label>
+                                <input id="courseCode" type="text" name="courseCode" th:field="*{courseCode}" required/>
+                                <label th:if="${#fields.hasErrors('courseCode')}" th:errors="*{courseCode}" class="hasError">Course Code Error</label>
+                            </div>
+                        </div>
+                        <div class="submit-box">
+                            <input type="submit" value="Submit validation" class="SubmitButt">
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </body>

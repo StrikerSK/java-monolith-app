@@ -18,7 +18,7 @@ import javax.validation.Valid;
 
 @AllArgsConstructor
 @Controller
-@RequestMapping("/customer")
+@RequestMapping("/validation")
 public class CustomerController {
 
     private final ICustomerService customerService;

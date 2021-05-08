@@ -1,9 +1,4 @@
-body{
-    margin: 0 0 20px;
-}
-
 /*Creating custom navbar*/
-
 /* Navbar container */
 .navbar {
     overflow: hidden;
@@ -14,10 +9,10 @@ body{
 /* Links inside the navbar */
 .navbar a {
     float: left;
-    font-size: 16px;
+    font-size: 1.5rem;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 9px 18px;
     text-decoration: none;
 }
 
@@ -29,14 +24,14 @@ body{
 
 /* Dropdown button */
 .dropdown .dropbtn, .dropdown-click .dropbtn {
-    font-size: 16px;
+    font-size: 1.5rem;
     border: none;
     outline: none;
     color: white;
-    padding: 14px 16px;
+    padding: 9px 18px;
     background-color: inherit;
-    font-family: inherit; /* Important for vertical align on mobile phones */
-    margin: 0; /* Important for vertical align on mobile phones */
+    font-family: inherit;
+    margin: 0;
 }
 
 /* Add a red background color to navbar links on hover */
@@ -78,9 +73,16 @@ body{
     display: block;
 }
 
+@media screen and (min-width: 601px) {
+    .navbar {
+        height: 5vh;
+    }
+}
+
 @media screen and (max-width: 600px) {
     .navbar.responsive {position: relative;}
     .navbar.responsive .icon {
+        height: auto;
         position: absolute;
         right: 0;
         top: 0;

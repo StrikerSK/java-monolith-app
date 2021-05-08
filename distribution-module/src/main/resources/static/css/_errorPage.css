@@ -10,6 +10,7 @@ body {
 .messageBox h1 {
     font-size: 4rem;
     margin: 0;
+    text-align: center;
 }
 
 .messageBox p, a {
