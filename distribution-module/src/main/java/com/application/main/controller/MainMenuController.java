@@ -21,4 +21,9 @@ public class MainMenuController {
 		return "aboutPage";
 	}
 
+	@RequestMapping("/random")
+	public String getPage(Model model){
+		model.addAttribute("websiteLink", "Custom video");
+		return "sampleVideoPage";
+	}
 }

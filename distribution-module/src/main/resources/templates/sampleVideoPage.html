@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Video show</title>
+
+        <link th:href="@{/css/_base.css}" rel="stylesheet" />
+        <link th:href="@{/css/_navigationBar.css}" rel="stylesheet" />
+        <link th:href="@{/css/_sampleVideoPage.css}" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <script type="text/javascript" th:src="@{/js/navigation-bar.js}"></script>
+    </head>
+
+    <body>
+        <div class="navbar" id="myTopnav">
+            <a href="/">Home</a>
+            <a href="/other/BMR">BMR</a>
+            <a href="/other/bmrjava">BMR (Java)</a>
+            <a href="/student/list">Student page</a>
+            <a href="/customer/showForm">Customer page</a>
+            <div class="dropdown">
+                <button class="dropbtn">User page
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/user/list">User list</a>
+                    <a href="/user/registerUser">User registration</a>
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="icon" onclick="makeResponsive()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+        <div class="incenter">
+            <h1>Random video in iframe</h1>
+            <div class="resp-container">
+                <div class="video-box">
+                    <iframe class="resp-iframe" src="https://www.youtube.com/embed/Sagg08DrO5U" allow="encrypted-media" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
