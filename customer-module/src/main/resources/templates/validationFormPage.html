@@ -12,7 +12,6 @@
     </head>
 
     <body>
-
         <div class="navbar" id="myTopnav">
             <a href="/">Home</a>
             <a href="/other/BMR">BMR</a>
@@ -37,7 +36,7 @@
                 <h1>Validation Form</h1>
                 <div class="RegForm">
                     <i>Fill out the form. Asterisk (*) means required.</i>
-                    <form action="#" method="post" th:action="@{/validation/process}" th:object="${customer}">
+                    <form action="#" method="post" th:action="@{/validation/process}" th:object="${validationEntity}">
                         <div class="inputs">
                             <div class="inputs__field">
                                 <label for="firstName"><span>First name:</span></label>

@@ -12,36 +12,54 @@
     </head>
 
     <body>
-        <div class="detailsBox">
-            <h1>Validation details</h1>
-            <div class="ConfirmTable">
-                <table>
-                    <tr>
-                        <td>Name:</td>
-                        <td th:text="${customer.firstName} + ' ' + ${customer.lastName}"></td>
-                    </tr>
-                    <tr>
-                        <td>ID:</td>
-                        <td th:text="${customer.sumNum}"></td>
-                    </tr>
-                    <tr>
-                        <td>Free passes:</td>
-                        <td th:text="${customer.freePasses}"></td>
-                    </tr>
-                    <tr>
-                        <td>Postal code:</td>
-                        <td th:text="${customer.postalCode}"></td>
-                    </tr>
-                    <tr>
-                        <td>Course code:</td>
-                        <td th:text="${customer.courseCode}"></td>
-                    </tr>
-                </table>
+        <div class="navbar" id="myTopnav">
+            <a href="/">Home</a>
+            <a href="/other/BMR">BMR</a>
+            <a href="/other/bmrjava">BMR (Java)</a>
+            <a href="/student/list">Student page</a>
+            <div class="dropdown">
+                <button class="dropbtn">User page
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/user/list">User list</a>
+                    <a href="/user/registerUser">User registration</a>
+                </div>
             </div>
-            <br/>
-            <div class="CustomerLink">
-                <a href="/validation/add" class="Link2">Try new validation!</a>
-                <a href="/" class="Link2">Go to main menu!</a>
+            <a href="javascript:void(0);" class="icon" onclick="makeResponsive()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+        <div class="detailsBox">
+            <div class="validation-result">
+                <h1>Validation details</h1>
+                <div class="ConfirmTable">
+                    <div class="table-cell">
+                        <span>Name:</span>
+                        <div class="cell-value" th:text="${validationEntity.firstName} + ' ' + ${validationEntity.lastName}"></div>
+                    </div>
+                    <div class="table-cell">
+                        <span>ID:</span>
+                        <div class="cell-value" th:text="${validationEntity.sumNum}"></div>
+                    </div>
+                    <div class="table-cell">
+                        <span>Free passes:</span>
+                        <div class="cell-value" th:text="${validationEntity.freePasses}"></div>
+                    </div>
+                    <div class="table-cell">
+                        <span>Postal code:</span>
+                        <div class="cell-value" th:text="${validationEntity.postalCode}"></div>
+                    </div>
+                    <div class="table-cell">
+                        <span>Course code:</span>
+                        <div class="cell-value" th:text="${validationEntity.courseCode}"></div>
+                    </div>
+                </div>
+                <div class="CustomerLink">
+                    <a href="/validation/add" class="Link2">Try new validation!</a>
+                    <a href="/" class="Link2">Go to main menu!</a>
+                </div>
             </div>
         </div>
     </body>

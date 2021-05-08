@@ -1,7 +1,7 @@
 package com.application.customer.controller;
 
-import com.application.customer.entity.Customer;
-import com.application.customer.service.ICustomerService;
+import com.application.customer.entity.ValidationEntity;
+import com.application.customer.service.IValidationService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
@@ -19,9 +19,9 @@ import javax.validation.Valid;
 @AllArgsConstructor
 @Controller
 @RequestMapping("/validation")
-public class CustomerController {
+public class ValidationController {
 
-    private final ICustomerService customerService;
+    private final IValidationService customerService;
 
     @InitBinder
     public void initBinder(WebDataBinder dataBinder){
@@ -31,17 +31,17 @@ public class CustomerController {
 
     @GetMapping("/add")
     public String getForm(Model model){
-        model.addAttribute("customer",new Customer());
+        model.addAttribute("validationEntity", new ValidationEntity());
         return "validationFormPage";
     }
 
     @PostMapping("/process")
-    public String processForm(@Valid @ModelAttribute("customer") Customer customer, BindingResult bindingResult, Model model){
+    public String processForm(@Valid @ModelAttribute("validationEntity") ValidationEntity validationEntity, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()){
             model.addAttribute("hasError", bindingResult.hasErrors());
             return "validationFormPage";
         } else {
-            customerService.createCustomer(customer);
+            customerService.createCustomer(validationEntity);
             return "validationDetailsPage";
         }
     }

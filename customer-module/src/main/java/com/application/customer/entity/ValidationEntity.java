@@ -9,7 +9,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.Random;
 
-public class Customer {
+public class ValidationEntity {
     private String firstName;
 
     @NotNull(message = "Required")
@@ -29,7 +29,7 @@ public class Customer {
 
     private int sumNum;
 
-    public Customer(){
+    public ValidationEntity(){
         sumNum = new Random().nextInt(5000);
     }
 
