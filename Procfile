@@ -1,0 +1,1 @@
+web: java -jar distribution-module/target/distribution-module-1.0.0-SNAPSHOT.jar
