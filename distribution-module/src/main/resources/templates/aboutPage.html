@@ -9,42 +9,71 @@
     <link th:href="@{/css/_navigationBar.css}" rel="stylesheet" />
     <link th:href="@{/css/_aboutPage.css}" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="/js/navigation-bar.js" type="text/javascript"></script>
+    <script type="text/javascript" th:src="@{/js/navigation-bar.js}"></script>
 </head>
 
 <body>
 
-    <div class="navbar" id="myTopnav">
-        <a href="/">Home</a>
-        <a href="/other/BMR">BMR</a>
-        <a href="/other/bmrjava">BMR (Java)</a>
-        <a href="/student/list">Student page</a>
-        <a href="/validation/add">Validation page</a>
-        <div class="dropdown">
-            <button class="dropbtn">User page
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="/user/list">User list</a>
-                <a href="/user/registerUser">User registration</a>
+    <header class="header">
+        <nav class="navbar">
+            <a href="/about" class="nav-logo">Application</a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/other/BMR" class="nav-link">BMR</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/other/bmrjava" class="nav-link">BMR (Java)</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/student/list" class="nav-link">Student page</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/validation/add">Validation page</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-        </div>
+        </nav>
+    </header>
 
-        <div class="dropdown-click">
-            <button class="dropbtn" onclick="openDropdown()">
-                Languages
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content" id="myDropdown">
-                <a href="/about?lang=en" th:text="#{lang.eng}"></a>
-                <a href="/about?lang=fr" th:text="#{lang.fr}"></a>
-                <a href="/about?lang=sk" th:text="#{lang.sk}"></a>
-            </div>
-        </div>
-        <a href="javascript:void(0);" class="icon" onclick="makeResponsive()">
-            <i class="fa fa-bars"></i>
-        </a>
-    </div>
+<!--    <div class="navbar" id="myTopnav">-->
+<!--        <a href="/">Home</a>-->
+<!--        <a href="/other/BMR">BMR</a>-->
+<!--        <a href="/other/bmrjava">BMR (Java)</a>-->
+<!--        <a href="/student/list">Student page</a>-->
+<!--        <a href="/validation/add">Validation page</a>-->
+<!--        <div class="dropdown">-->
+<!--            <button class="dropbtn">User page-->
+<!--                <i class="fa fa-caret-down"></i>-->
+<!--            </button>-->
+<!--            <div class="dropdown-content">-->
+<!--                <a href="/user/list">User list</a>-->
+<!--                <a href="/user/registerUser">User registration</a>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="dropdown-click">-->
+<!--            <button class="dropbtn" onclick="openDropdown()">-->
+<!--                Languages-->
+<!--                <i class="fa fa-caret-down"></i>-->
+<!--            </button>-->
+<!--            <div class="dropdown-content" id="myDropdown">-->
+<!--                <a href="/about?lang=en" th:text="#{lang.eng}"></a>-->
+<!--                <a href="/about?lang=fr" th:text="#{lang.fr}"></a>-->
+<!--                <a href="/about?lang=sk" th:text="#{lang.sk}"></a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <a href="javascript:void(0);" class="icon" onclick="makeResponsive()">-->
+<!--            <i class="fa fa-bars"></i>-->
+<!--        </a>-->
+<!--    </div>-->
 
     <div class="MainBody">
         <h1 class="MainText" th:text="#{aboutMe.Title}"></h1>
