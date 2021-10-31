@@ -1,0 +1,93 @@
+body{
+    margin: 0 !important;
+
+    background: url("../image/customer-reg.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: wheat;
+}
+
+/*Confirmation page of customer registration form*/
+.detailsBox{
+    height: 95vh;
+    background: rgba(50, 29, 38, 0.2);
+
+    display: flex;
+    flex-direction: column;
+
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.validation-result {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.validation-result h1{
+    text-align: center;
+    font-size: 4rem;
+}
+
+.ConfirmTable {
+    width: 75%;
+}
+
+.CustomerLink{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+
+    margin: 20px 0 0;
+    text-align: center;
+}
+
+.CustomerLink a{
+    color: wheat;
+    font-size: 1.8rem;
+}
+
+.CustomerLink a:hover{
+    color: red;
+}
+
+.table-cell {
+    font-size: 3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.table-cell span {
+    width: 20rem;
+}
+
+/*.cell-value{*/
+/*    width: 150px;*/
+/*    justify-content: left;*/
+/*}*/
+
+@media screen and (max-width: 600px) {
+
+    .validation-result {
+        width: 85%;
+    }
+
+    .ConfirmTable {
+        width: 100%;
+    }
+
+    .CustomerLink{
+        width: 100%;
+        flex-direction: column;
+
+        margin: 20px 0 0;
+        text-align: center;
+    }
+
+}

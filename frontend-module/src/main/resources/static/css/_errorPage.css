@@ -1,0 +1,19 @@
+body {
+    margin: 0 !important;
+
+    display: grid;
+    height: 100vh;
+    justify-items: center;
+    align-items: center;
+}
+
+.messageBox h1 {
+    font-size: 4rem;
+    margin: 0;
+    text-align: center;
+}
+
+.messageBox p, a {
+    font-size: 1.8rem;
+    text-align: center;
+}

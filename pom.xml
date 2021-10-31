@@ -25,6 +25,7 @@
     <modules>
         <module>customer-module</module>
         <module>distribution-module</module>
+        <module>frontend-module</module>
     </modules>
 
     <dependencies>

@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    color: #EDF5EE;
+}
+
+body{
+    margin: 0 !important;
+}
+
+.MainBody{
+    height: 95vh;
+    width: 100vw;
+    background: url("../images/aboutPageImage.jpeg") no-repeat center center fixed;
+
+    display: grid;
+    grid-template-columns: 25px 0.5fr 0.5fr 25px;
+    grid-template-rows: max-content max-content 1fr;
+}
+
+.MainText{
+    font-size: 6rem;
+    grid-column: 2 / 4;
+    grid-row: 2;
+
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    margin-top: 1.6rem;
+}
+
+.about-me {
+    grid-column: 2;
+    grid-row: 3 / 4;
+}
+
+.about-project{
+    grid-column: 3;
+    grid-row: 3 / 5;
+}
+
+.content-box{
+    width: 40vw;
+
+    justify-self: center;
+    align-self: start;
+}
+
+.section-header {
+    font-size: 5.5rem;
+    text-align: center;
+    margin: 0 0 3.2rem;
+}
+
+.about-project p, .about-me p{
+    font-size: 1.8rem;
+}
+
+@media screen and (max-device-width: 767px) {
+
+    .MainText{
+        grid-column: 2 / 4;
+        grid-row: 2;
+
+        font-size: 5rem;
+    }
+
+    .content-box{
+        width: 90vw;
+    }
+
+    .section-header {
+        font-size: 3.5rem;
+    }
+
+    .about-me{
+        grid-column: 2 / 3;
+        grid-row: 3;
+    }
+
+    .about-project{
+        grid-column: 2 / 3;
+        grid-row: 4;
+    }
+
+    .about-project p, .about-me p{
+        font-size: 1.6rem;
+    }
+
+}

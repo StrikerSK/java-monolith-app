@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+      <title>Main menu</title>
+      <meta charset="UTF-8">
+      <meta name="description" content="First website ever written">
+      <meta name="keywords" content="kristian,hanus,strikersk,web,developer,personal,java,spring,hibernate">
+      <meta name="author" content="Kristian Hanus">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link th:href="@{/css/_base.css}" rel="stylesheet" />
+      <link th:href="@{/css/_mainMenuPage.css}" rel="stylesheet" />
+  </head>
+
+  <body>
+      <div class="grid-container">
+
+          <div class="main-text">
+              <div>
+                  <h1 class="main-title">Spring Boot Application</h1>
+                  <p>As my page is growing bigger I actually give you seven options to select from. First three links are registration based pages, one page is about me, another one is testing site for development purpose and last two are IIFYM calculators.</p>
+              </div>
+          </div>
+
+          <div class="main-links">
+              <a class="redirect-link" href="about">About me</a>
+              <a class="redirect-link" href="student/list">Student form example</a>
+              <a class="redirect-link" href="validation/add">Validation form example</a>
+              <a class="redirect-link" href="user/list">User page example</a>
+              <a class="redirect-link" href="random">Random page example</a>
+              <a class="redirect-link" href="other/BMR">IIFYM with JS Example</a>
+              <a class="redirect-link" href="other/bmrjava">IIFYM with Java example</a>
+          </div>
+      </div>
+  </body>
+
+</html>
