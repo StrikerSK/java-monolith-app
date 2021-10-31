@@ -6,8 +6,8 @@ import com.application.school.entity.University;
 import com.application.school.repository.FacultyRepository;
 import com.application.school.repository.StudentRepository;
 import com.application.school.repository.UniversityRepository;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -17,36 +17,30 @@ import java.util.Random;
 
 @Slf4j
 @Service
+@AllArgsConstructor
 public class StudentServiceImpl implements IStudentService {
 
     private final StudentRepository studentRepository;
     private final UniversityRepository universityRepository;
     private final FacultyRepository facultyRepository;
 
-    @Autowired
-    public StudentServiceImpl(StudentRepository studentRepository, UniversityRepository universityRepository, FacultyRepository facultyRepository) {
-        this.studentRepository = studentRepository;
-        this.universityRepository = universityRepository;
-        this.facultyRepository = facultyRepository;
-    }
-
     public Student getStudent(Long id){
         try {
-            log.info("Calling method: getStudent({})", id);
-            return studentRepository.getStudentById(id);
+            return studentRepository.getOne(id);
         } catch (Exception e){
+            log.error("Error getting persisted student [{}]", id, e);
             return null;
         }
+    }
+
+    // Lookup for all students occurrence
+    public List<Student> getStudents(){
+        return studentRepository.findAll();
     }
 
     public void createStudent(Student student){
         log.info("Saving student: " + student.toString());
         studentRepository.save(student);
-    }
-
-    public List<Student> getStudents(){
-        log.info("Calling method: getStudents()");
-        return studentRepository.getAllByOrderByIdAsc();
     }
 
     public Student findStudentDetail(Long id){
@@ -96,7 +90,7 @@ public class StudentServiceImpl implements IStudentService {
     }
 
     public long getStudentCount(){
-        return studentRepository.count();
+        return getStudents().size();
     }
 
     public List<Student> getLimitedStudents(int count){
@@ -117,10 +111,6 @@ public class StudentServiceImpl implements IStudentService {
         }
     }
 
-    private Boolean isStudentPresent(Long id){
-        return studentRepository.getStudentById(id) != null;
-    }
-
     private List<Long> getRandomNumberList(Integer count){
         List<Long> randomNumberList = new ArrayList<>();
         Random rnd = new Random();
@@ -128,7 +118,7 @@ public class StudentServiceImpl implements IStudentService {
         for (Integer i = 0; i < count; i++){
             Boolean flag = false;
             Integer pomocna = rnd.nextInt(studentCount.intValue());
-            while (!isStudentPresent(pomocna.longValue())){
+            while (getStudent(pomocna.longValue()) != null ){
                 pomocna = rnd.nextInt(studentCount.intValue());
             }
 

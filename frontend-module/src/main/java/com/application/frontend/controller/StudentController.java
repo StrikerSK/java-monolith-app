@@ -1,51 +1,59 @@
-package com.application.school.controller;
+package com.application.frontend.controller;
 
 import com.application.school.entity.Student;
+import com.application.school.entity.University;
+import com.application.school.service.ISchoolService;
 import com.application.school.service.IStudentService;
-import com.application.school.service.StudentServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.SortedMap;
+import java.util.stream.Collectors;
 
+@Component
 @Controller
 @RequestMapping("/student")
+@AllArgsConstructor
 public class StudentController {
 
     @Resource
-    private SortedMap<String, String> programingLanguageOptions;
+    private final SortedMap<String, String> programingLanguageOptions;
 
     @Resource
-    private SortedMap<String, String> countryOptions;
+    private final SortedMap<String, String> countryOptions;
 
     @Resource
-    private SortedMap<String, String> languageOptions;
+    private final SortedMap<String, String> languageOptions;
 
-    private final IStudentService IStudentService;
+    private final IStudentService studentService;
 
-    @Autowired
-    public StudentController(StudentServiceImpl studentService) {
-        this.IStudentService = studentService;
-    }
+    private final ISchoolService schoolService;
 
     @RequestMapping("/registrationForm")
     public String registerStudent(Model model){
         Student theStudent = new Student();
         model.addAttribute("student", theStudent);
-        model.addAttribute("countries", countryOptions);
+        model.addAttribute("countries", countryOptions.values());
         model.addAttribute("progLang", programingLanguageOptions);
-        model.addAttribute("languages", languageOptions);
-        return "jsp/registration-page";
+        model.addAttribute("languages", languageOptions.values());
+        model.addAttribute("universities", schoolService.getUniversities().stream().map(University::getName).collect(Collectors.toList()));
+        return "school/registration-page";
     }
 
     @RequestMapping("/processForm")
     public String processForm(@ModelAttribute("student")Student theStudent, Model model){
-        IStudentService.createStudent(theStudent);
-        IStudentService.setUniversityAndFaculty(theStudent);
+        studentService.createStudent(theStudent);
+        studentService.setUniversityAndFaculty(theStudent);
         model.addAttribute("theStudent", theStudent);
         return "jsp/student-confirmation";
     }
@@ -53,15 +61,15 @@ public class StudentController {
     @RequestMapping("/list")
     public String getStudentList(Model model, @RequestParam(name = "count",required = false)Integer count, @RequestParam(name = "random", required = false)Boolean random){
         if (count != null && random != null) {
-            if (IStudentService.getStudents().size() > count) {
+            if (studentService.getStudents().size() > count) {
                 if(random){
-                    List<Student> students = IStudentService.getRandomStudents(count);
+                    List<Student> students = studentService.getRandomStudents(count);
                     model.addAttribute("students", students);
                     model.addAttribute("actualCount", count);
                     model.addAttribute("userCount", count);
                     model.addAttribute("random", true);
                 } else {
-                    List<Student> students = IStudentService.getLimitedStudents(count);
+                    List<Student> students = studentService.getLimitedStudents(count);
                     model.addAttribute("students", students);
                     model.addAttribute("actualCount", count);
                     model.addAttribute("userCount", count);
@@ -69,9 +77,9 @@ public class StudentController {
                 }
             }
         } else {
-            List<Student> students = IStudentService.getStudents();
+            List<Student> students = studentService.getStudents();
             model.addAttribute("students", students);
-            model.addAttribute("actualCount", IStudentService.getStudentCount());
+            model.addAttribute("actualCount", studentService.getStudentCount());
             model.addAttribute("userCount", count);
             model.addAttribute("random", random);
         }
@@ -80,7 +88,7 @@ public class StudentController {
 
     @GetMapping("/detail/{studentId}")
     public String getDetail(Model model, @PathVariable("studentId")Long id){
-        Student student = IStudentService.findStudentDetail(id);
+        Student student = studentService.findStudentDetail(id);
         if (student != null) {
             model.addAttribute("studentDetail", student);
             return "jsp/student-detail";
@@ -92,26 +100,26 @@ public class StudentController {
 
     @GetMapping("/edit/{studentId}")
     public String getStudentEdit(Model model, @PathVariable("studentId")Long id){
-        Student getStudent = IStudentService.getStudent(id);
+        Student getStudent = studentService.getStudent(id);
         model.addAttribute("facultyValue", getStudent.getFaculty());
         model.addAttribute("universityValue", getStudent.getUniversity());
         model.addAttribute("countries", countryOptions);
         model.addAttribute("progLang", programingLanguageOptions);
         model.addAttribute("languages", languageOptions);
-        IStudentService.setUniversityAndFaculty(getStudent);
+        studentService.setUniversityAndFaculty(getStudent);
         model.addAttribute("editedStudent", getStudent);
         return "jsp/student-edit";
     }
 
     @RequestMapping(value = "/postEdit", method = RequestMethod.POST)
     public String confirmEdit(@ModelAttribute("editedStudent")Student student){
-        IStudentService.createStudent(student);
+        studentService.createStudent(student);
         return "redirect:/student/list";
     }
 
     @RequestMapping("/delete/{studentId}")
     public String deleteStudent(@PathVariable("studentId")Long id){
-        IStudentService.deleteStudentById(id);
+        studentService.deleteStudentById(id);
         return "redirect:/student/list";
     }
 

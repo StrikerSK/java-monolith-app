@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Registration page</title>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="First website ever written">
+    <meta name="keywords" content="kristian,hanus,strikersk,web,developer,personal,java,spring,hibernate">
+    <meta name="author" content="Kristian Hanus">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link th:href="@{/css/_base.css}" rel="stylesheet" />
+    <link th:href="@{/css/_navigationBar.css}" rel="stylesheet" />
+    <link th:href="@{/css/_aboutPage.css}" rel="stylesheet" />
+    <link th:href="@{/css/school/_studentRegistration.css}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script type="text/javascript" th:src="@{/js/navigation-bar.js}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(
+            function() {
+                $.getJSON('${findUnisURL}', {
+                    ajax : 'true'
+                }, function(data) {
+                    let html = '<option value="" hidden="hidden">University</option>';
+                    let len = data.length;
+                    for ( let i = 0; i < len; i++) {
+                        html += '<option value="' + data[i].university_id + '">'
+                            + data[i].universityName + '</option>';
+                    }
+                    html += '</option>';
+
+                    $('#universities').html(html);
+                });
+            });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#universities').change(
+                function() {
+                    $.getJSON('${findFacultyURL}', {
+                        uniId : $(this).val(),
+                        ajax : 'true'
+                    }, function(data) {
+                        let len = data.length;
+                        let html = '<option value="' + data[0].facultyId + '">' + data[0].facultyName + '</option>';
+                        for ( let i = 1; i < len; i++) {
+                            html += '<option value="' + data[i].facultyId + '">'
+                                + data[i].facultyName + '</option>';
+                        }
+                        html += '</option>';
+
+                        $('#faculties').html(html).removeAttr('disabled');
+                    });
+                });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#typeOfStudy').change(
+                function() {
+                    let html = '<option value="" hidden="hidden">Select year</option>';
+                    if ($(this).val() === 'Bachelor'){
+                        html += '<option value="1st">1st</option>';
+                        html += '<option value="2nd">2nd</option>';
+                        html += '<option value="3rd">3rd</option>';
+                        html += '<option value="Extended">Extended</option>';
+                    } else {
+                        html += '<option value="1st">1st</option>';
+                        html += '<option value="2nd">2nd</option>';
+                        html += '<option value="Extended">Extended</option>';
+                    }
+                    $('#grade').html(html).removeAttr('disabled');
+                })
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            let html = '<option value="" hidden="hidden">Select year</option>';
+            if ($('#typeOfStudy').val() === 'Bachelor'){
+                html += '<option value="1st">1st</option>';
+                html += '<option value="2st">2nd</option>';
+                html += '<option value="3rd">3rd</option>';
+                html += '<option value="Extended">Extended</option>';
+            } else {
+                html += '<option value="1st">1st</option>';
+                html += '<option value="2st">2nd</option>';
+                html += '<option value="Extended">Extended</option>';
+            }
+            $('#grade').html(html);
+        });
+    </script>
+
+</head>
+
+<body>
+    <div class="RegisterPage">
+        <h1>This is student registration page of my web application!</h1>
+
+        <div class="RegisterForm">
+            <form action="#" method="post" th:action="@{/processForm}" th:object="${student}">
+
+                <div class="inputs__field">
+                    <label for="firstName"><span>First name:</span></label>
+                    <input id="firstName" type="text" name="firstName" th:field="*{firstName}" required/>
+
+                    <label for="lastName"><span>Last name:</span></label>
+                    <input id="lastName" type="text" name="lastName" th:field="*{lastName}" required/>
+
+                    <label for="age"><span>Last name:</span></label>
+                    <input id="age" type="number" name="number" th:field="*{grade}" required/>
+                </div>
+
+                <div class="countryOption">
+                    <label for="country">Select your country:</label>
+                    <select th:field="*{country}" id="country">
+                        <option th:each="i : ${countries}" th:value="${i}" th:text="${i}"></option>
+                    </select>
+                </div>
+
+                <div class="select-options">
+                    <label for="typeOfStudy">Select your year:</label>
+                    <select th:field="*{typeOfStudy}" id="typeOfStudy">
+                        <option value="" hidden="hidden">Select type of study</option>
+                        <option value="Bachelor">Bachelor</option>
+                        <option value="Masters">Masters</option>
+                        <option value="PhD student">PhD student</option>
+                    </select>
+                </div>
+
+                <div class="universityOptions">
+                    <label for="university">Select your University:</label>
+                    <select th:field="*{university}" id="university">
+                        <option th:each="i : ${universities}" th:value="${i}" th:text="${i}"></option>
+                    </select>
+                </div>
+
+<!--                <div class="facultyOption">-->
+<!--                    <label for="faculties">Select your Faculty:</label>-->
+<!--                    <form:select id="faculties" path="faculty" required="true" disabled="true">-->
+<!--                        <option value="">Faculty</option>-->
+<!--                    </form:select>-->
+<!--                </div>-->
+
+                <div class="language-option-section">
+                    <p class="language-label">Select your favorite language:</p>
+                    <label>Model</label>
+                    <div th:each="language : ${languages}">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <label th:for="${language}" class="radio-label" th:text="${language}">Favorite Language</label>
+                            <input th:id="${language}" class="radion-input" type="radio" th:field="*{spokenLanguages}" th:value="${language}">
+                        </div>
+                    </div>
+                    <output hidden="hidden" id="radio-result"></output>
+                </div>
+
+<!--                <div class="language-option-section">-->
+<!--                    <p class="language-label">Select your known language:</p>-->
+<!--                    <fieldset>-->
+<!--                        <div class="language-options">-->
+<!--                            <ul class="radio-button-grid">-->
+<!--                                <c:forEach items="${progLang.values()}" var="language">-->
+<!--                                    <li>-->
+<!--                                        <form:checkbox path="knownLanguages" cssClass="radion-input" value="${language}"/>-->
+<!--                                        <label for="${language}" class="radio-label">${language}</label>-->
+<!--                                    </li>-->
+<!--                                </c:forEach>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </fieldset>-->
+<!--                </div>-->
+
+<!--                <div class="language-option-section">-->
+<!--                    <p class="language-label">Select your spoken language:</p>-->
+<!--                    <fieldset>-->
+<!--                        <div class="language-options">-->
+<!--                            <ul class="radio-button-grid">-->
+<!--                                <c:forEach items="${languages.values()}" var="language">-->
+<!--                                    <li>-->
+<!--                                        <form:checkbox path="spokenLanguages" cssClass="radion-input" value="${language}"/>-->
+<!--                                        <label for="${language}" class="radio-label">${language}</label>-->
+<!--                                    </li>-->
+<!--                                </c:forEach>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </fieldset>-->
+<!--                </div>-->
+
+                <div class="submit-container">
+                    <input type="submit" value="Register student" id="submit-button"/>
+                </div>
+            </form>
+
+            <br/>
+            <div class="links">
+                <a href="/student/list" onclick="return confirm('Are you sure you want to go to student list?')">Go to list page!</a>
+                <br/>
+                <a href="/" onclick="return confirm('Are you sure you want to go to main menu?')">Go to main menu!</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

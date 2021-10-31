@@ -1,8 +1,10 @@
 package com.application.main.config;
 
+import org.springframework.beans.factory.config.PropertiesFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -13,6 +15,27 @@ import java.util.Locale;
 
 @Configuration
 public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
+
+	@Bean
+	public PropertiesFactoryBean countryOptions(){
+		PropertiesFactoryBean bean = new PropertiesFactoryBean();
+		bean.setLocation(new ClassPathResource("properties/countries.properties"));
+		return bean;
+	}
+
+	@Bean
+	public PropertiesFactoryBean programingLanguageOptions(){
+		PropertiesFactoryBean bean = new PropertiesFactoryBean();
+		bean.setLocation(new ClassPathResource("properties/languages.properties"));
+		return bean;
+	}
+
+	@Bean
+	public PropertiesFactoryBean languageOptions(){
+		PropertiesFactoryBean bean = new PropertiesFactoryBean();
+		bean.setLocation(new ClassPathResource("properties/languages.properties"));
+		return bean;
+	}
 
 	@Bean
 	public ResourceBundleMessageSource messageSource() {

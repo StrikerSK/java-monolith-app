@@ -28,6 +28,12 @@
             <artifactId>customer-module</artifactId>
             <version>${parent.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.application.school</groupId>
+            <artifactId>student-module</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
     </dependencies>
 
 </project>

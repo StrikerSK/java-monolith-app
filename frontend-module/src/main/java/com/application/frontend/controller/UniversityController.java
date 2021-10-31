@@ -1,4 +1,4 @@
-package com.application.school.controller;
+package com.application.frontend.controller;
 
 import com.application.school.entity.Faculty;
 import com.application.school.entity.University;
