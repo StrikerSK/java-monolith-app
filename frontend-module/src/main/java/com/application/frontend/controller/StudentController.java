@@ -27,13 +27,13 @@ import java.util.stream.Collectors;
 public class StudentController {
 
     @Resource
+    private final SortedMap<String, String> spokenLanguageOptions;
+
+    @Resource
     private final SortedMap<String, String> programingLanguageOptions;
 
     @Resource
     private final SortedMap<String, String> countryOptions;
-
-    @Resource
-    private final SortedMap<String, String> languageOptions;
 
     private final IStudentService studentService;
 
@@ -44,8 +44,8 @@ public class StudentController {
         Student theStudent = new Student();
         model.addAttribute("student", theStudent);
         model.addAttribute("countries", countryOptions.values());
-        model.addAttribute("progLang", programingLanguageOptions);
-        model.addAttribute("languages", languageOptions.values());
+        model.addAttribute("progLang", programingLanguageOptions.values());
+        model.addAttribute("languages", spokenLanguageOptions.values());
         model.addAttribute("universities", schoolService.getUniversities().stream().map(University::getName).collect(Collectors.toList()));
         return "school/registration-page";
     }
@@ -55,7 +55,7 @@ public class StudentController {
         studentService.createStudent(theStudent);
         studentService.setUniversityAndFaculty(theStudent);
         model.addAttribute("theStudent", theStudent);
-        return "jsp/student-confirmation";
+        return "school/student-confirmation";
     }
 
     @RequestMapping("/list")
@@ -83,7 +83,7 @@ public class StudentController {
             model.addAttribute("userCount", count);
             model.addAttribute("random", random);
         }
-        return "jsp/student-list";
+        return "school/student-list";
     }
 
     @GetMapping("/detail/{studentId}")
@@ -103,9 +103,9 @@ public class StudentController {
         Student getStudent = studentService.getStudent(id);
         model.addAttribute("facultyValue", getStudent.getFaculty());
         model.addAttribute("universityValue", getStudent.getUniversity());
-        model.addAttribute("countries", countryOptions);
-        model.addAttribute("progLang", programingLanguageOptions);
-        model.addAttribute("languages", languageOptions);
+        model.addAttribute("countries", countryOptions.values());
+        model.addAttribute("progLang", programingLanguageOptions.values());
+        model.addAttribute("languages", spokenLanguageOptions.values());
         studentService.setUniversityAndFaculty(getStudent);
         model.addAttribute("editedStudent", getStudent);
         return "jsp/student-edit";

@@ -18,6 +18,31 @@ h1{
     text-align: center;
 }
 
+h3 {
+    font-size: 3rem;
+}
+
+label, span, input, select, p {
+    font-size: 1.8rem;
+}
+
+input, select {
+    color: black;
+}
+
+.radio-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.radio-grid-item {
+    width: 33.3%;
+    display: flex;
+    flex-direction: column;
+}
+
 .countryOption, .inputText, .facultyOption, .universityOptions, .select-options{
     width: 40%;
     margin: 0 auto;

@@ -11,7 +11,7 @@ body{
 .MainBody{
     height: 95vh;
     width: 100vw;
-    background: url("../images/aboutPageImage.jpeg") no-repeat center center fixed;
+    background: url("/image/aboutPageImage.jpeg") no-repeat center center fixed;
 
     display: grid;
     grid-template-columns: 25px 0.5fr 0.5fr 25px;

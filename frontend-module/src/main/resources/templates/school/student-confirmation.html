@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Confirmation Page</title>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="First website ever written">
+    <meta name="keywords" content="kristian,hanus,strikersk,web,developer,personal,java,spring,hibernate">
+    <meta name="author" content="Kristian Hanus">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link th:href="@{/css/_base.css}" rel="stylesheet" />
+    <link th:href="@{/css/_navigationBar.css}" rel="stylesheet" />
+    <link th:href="@{/css/_aboutPage.css}" rel="stylesheet" />
+    <link th:href="@{/css/school/_studentRegistration.css}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script type="text/javascript" th:src="@{/js/navigation-bar.js}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div class="ConfBody">
+        <h1>Student created</h1>
+        <table class="ConfPanel">
+            <colgroup>
+                <col style="width: 35%">
+                <col style="width: 65%">
+            </colgroup>
+            <tr>
+                <td class="column1">Student name:</td>
+                <td class="column2" th:text="${theStudent.firstName} + ' ' + ${theStudent.lastName}"></td>
+            </tr>
+            <tr>
+                <td class="column1">Favorite language:</td>
+                <td class="column2" th:text="${theStudent.favoriteLanguage}"></td>
+            </tr>
+            <tr>
+                <td class="column1">Known languages:</td>
+                <td class="column2" th:text="${theStudent.stringProgramming}"></td>
+            </tr>
+            <tr>
+                <td class="column1">Spoken languages:</td>
+                <td class="column2" th:text="${theStudent.stringSpoken}"></td>
+            </tr>
+            <tr>
+                <td class="column1">Country:</td>
+                <td class="column2" th:text="${theStudent.country}"></td>
+            </tr>
+            <tr>
+                <td class="column1">University:</td>
+                <td class="column2" th:text="${theStudent.university}"></td>
+            </tr>
+            <tr>
+                <td class="column1">Faculty:</td>
+                <td class="column2" th:text="${theStudent.faculty}"></td>
+            </tr>
+            <tr>
+                <td class="column1">Type of stdy:</td>
+                <td class="column2" th:text="${theStudent.typeOfStudy}"></td>
+            </tr>
+            <tr>
+                <td class="column1">Year of study:</td>
+                <td class="column2" th:text="${theStudent.grade}"></td>
+            </tr>
+        </table>
+
+        <div class="ConfLinks">
+            <a href="/" class="ConfMain">Go to main menu!</a>
+            <br/>
+            <a href="/student/list" class="ConfList">Go to student list!</a>
+            <br/>
+            <a href="/student/registrationForm" onclick="return confirm('Do you want to register new student?')">New student!</a>
+        </div>
+    </div>
+
+</body>
+</html>

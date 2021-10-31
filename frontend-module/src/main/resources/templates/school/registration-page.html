@@ -105,7 +105,7 @@
         <h1>This is student registration page of my web application!</h1>
 
         <div class="RegisterForm">
-            <form action="#" method="post" th:action="@{/processForm}" th:object="${student}">
+            <form action="#" method="post" th:action="@{/student/processForm}" th:object="${student}">
 
                 <div class="inputs__field">
                     <label for="firstName"><span>First name:</span></label>
@@ -114,13 +114,14 @@
                     <label for="lastName"><span>Last name:</span></label>
                     <input id="lastName" type="text" name="lastName" th:field="*{lastName}" required/>
 
-                    <label for="age"><span>Last name:</span></label>
+                    <label for="age"><span>Select grade:</span></label>
                     <input id="age" type="number" name="number" th:field="*{grade}" required/>
                 </div>
 
                 <div class="countryOption">
                     <label for="country">Select your country:</label>
                     <select th:field="*{country}" id="country">
+                        <option value="" hidden="hidden">Select country of origin</option>
                         <option th:each="i : ${countries}" th:value="${i}" th:text="${i}"></option>
                     </select>
                 </div>
@@ -150,48 +151,40 @@
 <!--                </div>-->
 
                 <div class="language-option-section">
-                    <p class="language-label">Select your favorite language:</p>
-                    <label>Model</label>
-                    <div th:each="language : ${languages}">
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <label th:for="${language}" class="radio-label" th:text="${language}">Favorite Language</label>
-                            <input th:id="${language}" class="radion-input" type="radio" th:field="*{spokenLanguages}" th:value="${language}">
+                    <h3>Select your favorite language:</h3>
+                    <div class="radio-grid">
+                        <div th:each="language : ${languages}" class="radio-grid-item">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input th:id="radioFor + ${language}" class="radio-input" type="radio" th:field="*{favoriteLanguage}" th:value="${language}">
+                                <label th:for="radioFor +${language}" class="radio-label" th:text="${language}">Favorite Language</label>
+                            </div>
                         </div>
                     </div>
-                    <output hidden="hidden" id="radio-result"></output>
                 </div>
 
-<!--                <div class="language-option-section">-->
-<!--                    <p class="language-label">Select your known language:</p>-->
-<!--                    <fieldset>-->
-<!--                        <div class="language-options">-->
-<!--                            <ul class="radio-button-grid">-->
-<!--                                <c:forEach items="${progLang.values()}" var="language">-->
-<!--                                    <li>-->
-<!--                                        <form:checkbox path="knownLanguages" cssClass="radion-input" value="${language}"/>-->
-<!--                                        <label for="${language}" class="radio-label">${language}</label>-->
-<!--                                    </li>-->
-<!--                                </c:forEach>-->
-<!--                            </ul>-->
-<!--                        </div>-->
-<!--                    </fieldset>-->
-<!--                </div>-->
+                <div class="language-option-section">
+                    <h3>Select programming languages:</h3>
+                    <div class="radio-grid">
+                        <div th:each="language : ${progLang}" class="radio-grid-item">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input th:id="${language}" class="radio-input" type="checkbox" th:field="*{knownLanguages}" th:value="${language}">
+                                <label th:for="${language}" class="radio-label" th:text="${language}"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-<!--                <div class="language-option-section">-->
-<!--                    <p class="language-label">Select your spoken language:</p>-->
-<!--                    <fieldset>-->
-<!--                        <div class="language-options">-->
-<!--                            <ul class="radio-button-grid">-->
-<!--                                <c:forEach items="${languages.values()}" var="language">-->
-<!--                                    <li>-->
-<!--                                        <form:checkbox path="spokenLanguages" cssClass="radion-input" value="${language}"/>-->
-<!--                                        <label for="${language}" class="radio-label">${language}</label>-->
-<!--                                    </li>-->
-<!--                                </c:forEach>-->
-<!--                            </ul>-->
-<!--                        </div>-->
-<!--                    </fieldset>-->
-<!--                </div>-->
+                <div class="language-option-section">
+                    <h3>Select spoken languages:</h3>
+                    <div class="radio-grid">
+                        <div th:each="language : ${languages}" class="radio-grid-item">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input th:id="checkboxFor + ${language}" class="radio-input" type="checkbox" th:field="*{spokenLanguages}" th:value="${language}">
+                                <label th:for="checkboxFor + ${language}" class="radio-label" th:text="${language}"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="submit-container">
                     <input type="submit" value="Register student" id="submit-button"/>

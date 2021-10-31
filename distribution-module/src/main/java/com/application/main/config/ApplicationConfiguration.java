@@ -26,14 +26,14 @@ public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
 	@Bean
 	public PropertiesFactoryBean programingLanguageOptions(){
 		PropertiesFactoryBean bean = new PropertiesFactoryBean();
-		bean.setLocation(new ClassPathResource("properties/languages.properties"));
+		bean.setLocation(new ClassPathResource("properties/programmingLanguages.properties"));
 		return bean;
 	}
 
 	@Bean
-	public PropertiesFactoryBean languageOptions(){
+	public PropertiesFactoryBean spokenLanguageOptions(){
 		PropertiesFactoryBean bean = new PropertiesFactoryBean();
-		bean.setLocation(new ClassPathResource("properties/languages.properties"));
+		bean.setLocation(new ClassPathResource("properties/spokenLanguages.properties"));
 		return bean;
 	}
 
