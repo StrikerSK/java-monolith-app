@@ -11,7 +11,7 @@
 
     <groupId>com.application.school</groupId>
     <artifactId>student-module</artifactId>
-    <version>${parent.version</version>
+    <version>${parent.version}</version>
 
     <dependencies>
         <dependency>
