@@ -26,6 +26,8 @@
         <module>customer-module</module>
         <module>distribution-module</module>
         <module>frontend-module</module>
+        <module>bmr-module</module>
+        <module>student-module</module>
     </modules>
 
     <dependencies>
