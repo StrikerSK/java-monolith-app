@@ -41,10 +41,10 @@ public class Student {
     private String grade;
 
     @Column(name = "university")
-    private String university;
+    private String university = "";
 
     @Column(name = "faculty")
-    private String faculty;
+    private String faculty = "";
 
     @ElementCollection
     @CollectionTable(name = "student_spoken_languages", joinColumns = @JoinColumn(name = "id"))

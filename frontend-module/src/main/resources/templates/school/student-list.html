@@ -88,40 +88,42 @@
         </div>
     </nav>
 
-    <div class="container">
-        <h1 class="h1 text-center">This is student list page of my web application!</h1>
-        <br/>
+    <div class="container centered-box">
+        <div>
+            <h1 class="h1 text-center">This is student list page of my web application!</h1>
+            <br/>
 
-        <div th:switch="${students.size()}">
-            <h3 th:case="'0'">There is no student to show!</h3>
-            <table th:case="*" id="myTable" class="table-hover table display col-sm-12">
-                <thead>
-                <tr class="header">
-                    <th></th>
-                    <th>First name</th>
-                    <th>Last name</th>
-                    <th>Detail</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="student : ${students}" > <!--onclick="location.href='/student/detail/${temp.id}'"-->
-                        <td></td>
-                        <td th:text="${student.firstName}"></td>
-                        <td th:text="${student.lastName}"></td>
-                        <td><a th:href="@{'/student/detail/' + ${student.id}}" title="This link shows student detail" target="_blank">Detail</a></td>
-                        <td><a th:href="@{'/student/edit/' + ${student.id}}" title="This link edit student" target="_blank">Edit</a></td>
-                        <td><a th:href="@{'/student/delete/' + ${student.id}}" title="This link deletes student" onclick="return confirm('Are you sure you want to delete student ${temp.firstName} ${temp.lastName}?');">Delete</a></td>
+            <div th:switch="${students.size()}">
+                <h3 th:case="'0'">There is no student to show!</h3>
+                <table th:case="*" id="myTable" class="table-hover table display col-sm-12">
+                    <thead>
+                    <tr class="header">
+                        <th></th>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Detail</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
-                <tbody>
-            </table>
-        </div>
+                    </thead>
+                    <tbody>
+                        <tr th:each="student : ${students}" > <!--onclick="location.href='/student/detail/${temp.id}'"-->
+                            <td></td>
+                            <td th:text="${student.firstName}"></td>
+                            <td th:text="${student.lastName}"></td>
+                            <td><a th:href="@{'/student/detail/' + ${student.id}}" title="This link shows student detail" target="_blank">Detail</a></td>
+                            <td><a th:href="@{'/student/edit/' + ${student.id}}" title="This link edit student" target="_blank">Edit</a></td>
+                            <td><a th:href="@{'/student/delete/' + ${student.id}}" title="This link deletes student" onclick="return confirm('Are you sure you want to delete student ${temp.firstName} ${temp.lastName}?');">Delete</a></td>
+                        </tr>
+                    <tbody>
+                </table>
+            </div>
 
-        <div class="form-group row">
-            <div class="col-lg-12 text-center">
-                <a class="btn btn-primary col-md-2 mb-2" href="/student/registrationForm" >Register new student!</a>
-                <a class="btn btn-primary col-md-2 mb-2" href="/">Go to main menu!</a>
+            <div class="form-group row">
+                <div class="col-lg-12 text-center">
+                    <a class="btn btn-primary col-md-2 mb-2" href="/student/registrationForm" >Register new student!</a>
+                    <a class="btn btn-primary col-md-2 mb-2" href="/">Go to main menu!</a>
+                </div>
             </div>
         </div>
     </div>

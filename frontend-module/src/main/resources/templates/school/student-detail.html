@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title th:text="${student != null} ? 'Student ' + ${student.id} : 'Student not found'"></title>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="First website ever written">
+    <meta name="keywords" content="kristian,hanus,strikersk,web,developer,personal,java,spring,hibernate">
+    <meta name="author" content="Kristian Hanus">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link th:href="@{/css/_base.css}" rel="stylesheet"/>
+    <link th:href="@{/css/_navigationBar.css}" rel="stylesheet"/>
+    <link th:href="@{/css/_aboutPage.css}" rel="stylesheet"/>
+    <link th:href="@{/css/school/_studentDetail.css}" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script type="text/javascript" th:src="@{/js/navigation-bar.js}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <div th:if="${student != null}" class="centered-box" style="flex-direction: column">
+        <div>
+            <div class="student-details">
+            <h1 th:text="'Student ' + ${student.firstName} + ' ' + ${student.lastName}"></h1>
+            <div class="student-text">
+                <p th:text="'Full name: ' + ${student.firstName} + ' ' + ${student.lastName} + '.'"></p>
+                <p th:text="'Country of origin: ' + ${student.country} + '.'"></p>
+                <p th:text="'Favorite language: ' + ${student.favoriteLanguage} + '.'"></p>
+
+                <p th:if="${student.university == null}">Student might not specified university!</p>
+                <p th:if="${student.university != null}"
+                   th:text="'Current university: ' + ${student.university} + '!'"></p>
+
+                <p th:if="${student.knownLanguages.size() == 0}">Student might not specified programming language!</p>
+                <p th:if="${student.knownLanguages.size() > 0}">Programming languages: <strong
+                        th:text="${student.stringProgramming}"></strong></p>
+
+                <p th:if="${student.spokenLanguages.size() == 0}">Student might not specified spoken language!</p>
+                <p th:if="${student.spokenLanguages.size() > 0}">Spoken languages: <strong
+                        th:text="${student.stringSpoken}"></strong></p>
+            </div>
+        </div>
+
+            <div class="link-box">
+            <a href="/student/edit/${studentDetail.id}" onclick="return confirm('Are you sure you want to edit student?')">Edit
+                student!</a>
+            <a href="/student/delete/${studentDetail.id}" onclick="return confirm('Are you sure you want to delete student?')">Delete
+                student!</a>
+        </div>
+        </div>
+    </div>
+
+    <div th:if="${student == null}" class="centered-box">
+        <div class="miss-info">
+            <h2>There is no longer student with id [[${searchedID}]]!<br>Student was moved or deleted!</h2>
+            <div class="centered-box link-box">
+                <a href="/">Go to main menu!</a>
+                <a href="/student/registrationForm">Create student!</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

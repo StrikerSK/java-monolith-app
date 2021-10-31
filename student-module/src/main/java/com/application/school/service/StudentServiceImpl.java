@@ -1,8 +1,6 @@
 package com.application.school.service;
 
-import com.application.school.entity.Faculty;
 import com.application.school.entity.Student;
-import com.application.school.entity.University;
 import com.application.school.repository.FacultyRepository;
 import com.application.school.repository.StudentRepository;
 import com.application.school.repository.UniversityRepository;
@@ -25,12 +23,7 @@ public class StudentServiceImpl implements IStudentService {
     private final FacultyRepository facultyRepository;
 
     public Student getStudent(Long id){
-        try {
-            return studentRepository.getOne(id);
-        } catch (Exception e){
-            log.error("Error getting persisted student [{}]", id, e);
-            return null;
-        }
+        return studentRepository.findById(id).orElse(null);
     }
 
     // Lookup for all students occurrence
@@ -41,52 +34,6 @@ public class StudentServiceImpl implements IStudentService {
     public void createStudent(Student student){
         log.info("Saving student: " + student.toString());
         studentRepository.save(student);
-    }
-
-    public Student findStudentDetail(Long id){
-        log.info("Calling method: getStudentDetail(" + id + ")");
-        Student student = studentRepository.findById(id).orElse(null);
-        if (student != null) {
-            setUniversityAndFaculty(student);
-        }
-        return student;
-    }
-
-    @Override
-    public void setUniversityAndFaculty(Student student) {
-        if(student != null) {
-            setStudentFaculty(student);
-            setStudentUniversity(student);
-        }
-    }
-
-    private void setStudentUniversity(Student student) {
-        try {
-            if (student.getUniversity().equals("")) {
-                student.setUniversity("No university");
-            } else {
-                University university = universityRepository.getOne(Long.parseLong(student.getUniversity()));
-                String universityName = university.getName();
-                student.setUniversity(universityName);
-            }
-        } catch (NullPointerException e){
-            student.setUniversity("No university");
-        }
-    }
-
-    private void setStudentFaculty(Student student) {
-        try {
-            if(student.getFaculty().equals("")){
-                student.setFaculty("No faculty");
-            } else {
-                Faculty faculty = facultyRepository.getOne(Long.parseLong(student.getFaculty()));
-                String facultyName = faculty.getName();
-                student.setFaculty(facultyName);
-            }
-        } catch (NullPointerException e){
-            student.setFaculty("No faculty");
-        }
-
     }
 
     public long getStudentCount(){
@@ -102,7 +49,7 @@ public class StudentServiceImpl implements IStudentService {
         return newUserList;
     }
 
-    public void deleteStudentById(Long id){
+    public void deleteStudent(Long id){
         try {
             log.info("Student [{}] deleted!", id);
             studentRepository.deleteById(id);

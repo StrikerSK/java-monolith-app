@@ -151,9 +151,9 @@
 <!--                </div>-->
 
                 <div class="language-option-section">
-                    <h3>Select your favorite language:</h3>
+                    <h3>Select your favorite programming language:</h3>
                     <div class="radio-grid">
-                        <div th:each="language : ${languages}" class="radio-grid-item">
+                        <div th:each="language : ${progLang}" class="radio-grid-item">
                             <div class="custom-control custom-radio custom-control-inline">
                                 <input th:id="radioFor + ${language}" class="radio-input" type="radio" th:field="*{favoriteLanguage}" th:value="${language}">
                                 <label th:for="radioFor +${language}" class="radio-label" th:text="${language}">Favorite Language</label>

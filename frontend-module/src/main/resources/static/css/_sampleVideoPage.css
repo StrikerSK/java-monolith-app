@@ -7,7 +7,7 @@ p{
 }
 
 body{
-    background: url("../images/sampleVideoImage.jpg") no-repeat center center fixed;
+    background: url("/image/sampleVideoImage.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

@@ -4,3 +4,48 @@
     font-size: 62.5%;
     font-family: 'Montserrat', sans-serif;
 }
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+h1 {
+    font-size: 3.8rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 3.4rem;
+    text-align: center;
+}
+
+h3 {
+    font-size: 3.0rem;
+    text-align: center;
+}
+
+th, td, a, p, span, strong, input, select {
+    font-size: 1.8rem;
+}
+
+.centered-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.link-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.link-box a {
+    color: #EDF5EE;
+}
+
+.link-box a:hover {
+    color: lightslategray;
+}

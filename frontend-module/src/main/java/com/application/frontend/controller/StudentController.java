@@ -4,6 +4,7 @@ import com.application.school.entity.Student;
 import com.application.school.entity.University;
 import com.application.school.service.ISchoolService;
 import com.application.school.service.IStudentService;
+import com.application.school.service.StudentServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -53,7 +54,6 @@ public class StudentController {
     @RequestMapping("/processForm")
     public String processForm(@ModelAttribute("student")Student theStudent, Model model){
         studentService.createStudent(theStudent);
-        studentService.setUniversityAndFaculty(theStudent);
         model.addAttribute("theStudent", theStudent);
         return "school/student-confirmation";
     }
@@ -79,7 +79,7 @@ public class StudentController {
         } else {
             List<Student> students = studentService.getStudents();
             model.addAttribute("students", students);
-            model.addAttribute("actualCount", studentService.getStudentCount());
+            model.addAttribute("actualCount", studentService.getStudents().size());
             model.addAttribute("userCount", count);
             model.addAttribute("random", random);
         }
@@ -88,14 +88,10 @@ public class StudentController {
 
     @GetMapping("/detail/{studentId}")
     public String getDetail(Model model, @PathVariable("studentId")Long id){
-        Student student = studentService.findStudentDetail(id);
-        if (student != null) {
-            model.addAttribute("studentDetail", student);
-            return "jsp/student-detail";
-        }else{
-            model.addAttribute("id", id);
-            return  "jsp/student-empty-detail";
-        }
+        Student student = studentService.getStudent(id);
+        model.addAttribute("student", student);
+        model.addAttribute("searchedID", id);
+        return "school/student-detail";
     }
 
     @GetMapping("/edit/{studentId}")
@@ -106,7 +102,6 @@ public class StudentController {
         model.addAttribute("countries", countryOptions.values());
         model.addAttribute("progLang", programingLanguageOptions.values());
         model.addAttribute("languages", spokenLanguageOptions.values());
-        studentService.setUniversityAndFaculty(getStudent);
         model.addAttribute("editedStudent", getStudent);
         return "jsp/student-edit";
     }
@@ -119,7 +114,7 @@ public class StudentController {
 
     @RequestMapping("/delete/{studentId}")
     public String deleteStudent(@PathVariable("studentId")Long id){
-        studentService.deleteStudentById(id);
+        studentService.deleteStudent(id);
         return "redirect:/student/list";
     }
 
