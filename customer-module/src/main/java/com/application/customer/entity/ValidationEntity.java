@@ -16,7 +16,7 @@ public class ValidationEntity {
     @Size(min = 1,message = "is required")
     private String lastName;
 
-    @NotNull(message = "Reguired")
+    @NotNull(message = "Required")
     @Min(value = 0, message = "The number must be more than zero")
     @Max(value = 10, message = "The number must be less than ten")
     private Integer freePasses;

@@ -57,7 +57,13 @@
         <dependency>
             <groupId>com.application</groupId>
             <artifactId>customer-module</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>${parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.application.frotnend</groupId>
+            <artifactId>frontend-module</artifactId>
+            <version>${parent.version}</version>
         </dependency>
     </dependencies>
 

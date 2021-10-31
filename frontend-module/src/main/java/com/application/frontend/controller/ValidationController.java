@@ -14,7 +14,7 @@ import javax.validation.Valid;
 
 @AllArgsConstructor
 @Controller
-@RequestMapping("/customer")
+@RequestMapping("/validation")
 public class ValidationController {
 
     private final IValidationService customerService;
@@ -28,17 +28,17 @@ public class ValidationController {
     @GetMapping("/add")
     public String getForm(Model model){
         model.addAttribute("validationEntity", new ValidationEntity());
-        return "validationFormPage";
+        return "validation/RecapPage";
     }
 
     @PostMapping("/process")
     public String processForm(@Valid @ModelAttribute("validationEntity") ValidationEntity validationEntity, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()){
             model.addAttribute("hasError", bindingResult.hasErrors());
-            return "validationFormPage";
+            return "validation/RecapPage";
         } else {
             customerService.createCustomer(validationEntity);
-            return "validationDetailsPage";
+            return "validation/DetailsPage";
         }
     }
 
