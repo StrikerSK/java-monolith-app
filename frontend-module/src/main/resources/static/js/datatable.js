@@ -2,7 +2,7 @@ $(document).ready(function() {
     let table = $('#myTable').DataTable( {
         "columnDefs": [ {
             "searchable": false,
-            "orderable": false,
+            "ordeable": false,
             "targets": 0
         },
         ]

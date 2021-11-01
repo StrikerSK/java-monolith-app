@@ -4,7 +4,6 @@ import com.application.school.entity.Student;
 import com.application.school.entity.University;
 import com.application.school.service.ISchoolService;
 import com.application.school.service.IStudentService;
-import com.application.school.service.StudentServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -47,7 +46,7 @@ public class StudentController {
         model.addAttribute("countries", countryOptions.values());
         model.addAttribute("progLang", programingLanguageOptions.values());
         model.addAttribute("languages", spokenLanguageOptions.values());
-        model.addAttribute("universities", schoolService.getUniversities().stream().map(University::getName).collect(Collectors.toList()));
+        model.addAttribute("universities", schoolService.getAllUniversities().stream().map(University::getName).collect(Collectors.toList()));
         return "school/registration-page";
     }
 

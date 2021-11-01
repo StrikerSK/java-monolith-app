@@ -1,15 +1,11 @@
 package com.application.school.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -19,6 +15,7 @@ import javax.persistence.Table;
 public class Faculty {
 
     @Id
+    @GeneratedValue
     @Column(name = "faculty_id")
     private Long facultyId;
 
@@ -28,8 +25,9 @@ public class Faculty {
     @Column(name = "abbreviation")
     private String abbreviation;
 
-    @ManyToOne
-    @JoinColumn(name="university_id", nullable = false)
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="university_id")
     private University university;
 
 }

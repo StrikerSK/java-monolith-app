@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -27,8 +28,19 @@ public class SchoolService implements ISchoolService {
         return new ArrayList<>(universityRepository.getOne(id).getFaculties());
     }
 
-    public List<University> getUniversities() {
+    public List<Faculty> getUniversityFaculties(String name){
+        return new ArrayList<>(universityRepository.findByName(name).get().getFaculties());
+    }
+
+    public List<University> getAllUniversities() {
         return universityRepository.findAll();
     }
 
+    public Optional<University> getUniversity(Long id) {
+        return universityRepository.findById(id);
+    }
+
+    public Optional<University> getUniversity(String name) {
+        return universityRepository.findByName(name);
+    }
 }
