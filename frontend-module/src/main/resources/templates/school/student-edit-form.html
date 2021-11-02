@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Edit page</title>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="First website ever written">
+    <meta name="keywords" content="kristian,hanus,strikersk,web,developer,personal,java,spring,hibernate">
+    <meta name="author" content="Kristian Hanus">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link th:href="@{/css/_base.css}" rel="stylesheet" />
+    <link th:href="@{/css/_navigationBar.css}" rel="stylesheet" />
+    <link th:href="@{/css/_aboutPage.css}" rel="stylesheet" />
+    <link th:href="@{/css/school/_studentRegistration.css}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script type="text/javascript" th:src="@{/js/navigation-bar.js}"></script>
+    <script th:src="@{/webjars/jquery/3.6.0/dist/jquery.min.js}" type="text/javascript"></script>
+</head>
+
+<body>
+<div class="RegisterPage">
+    <h1>This is student registration page of my web application!</h1>
+
+    <div class="RegisterForm">
+        <form action="#" method="post" th:action="@{/student/processForm}" th:object="${student}">
+
+            <div class="inputs__field">
+                <input id="id" type="text" name="id" th:field="*{id}" hidden/>
+
+                <label for="firstName"><span>First name:</span></label>
+                <input id="firstName" type="text" name="firstName" th:field="*{firstName}" required/>
+
+                <label for="lastName"><span>Last name:</span></label>
+                <input id="lastName" type="text" name="lastName" th:field="*{lastName}" required/>
+            </div>
+
+            <div class="countryOption">
+                <label for="country">Select your country:</label>
+                <select th:field="*{country}" id="country">
+                    <option value="" hidden="hidden">Select country of origin</option>
+                    <option th:each="i : ${countries}" th:value="${i}" th:text="${i}"></option>
+                </select>
+            </div>
+
+            <div class="select-options">
+                <label for="typeOfStudy">Select your year:</label>
+                <select th:field="*{typeOfStudy}" id="typeOfStudy">
+                    <option value="" hidden="hidden">Select type of study</option>
+                    <option value="Bachelor">Bachelor</option>
+                    <option value="Masters">Masters</option>
+                    <option value="PhD student">PhD student</option>
+                </select>
+            </div>
+
+            <div class="select-options">
+                <label for="grade">Select your year:</label>
+                <select th:field="*{grade}" id="grade" disabled>
+                    <option value="" hidden="hidden">Select year</option>
+                </select>
+            </div>
+
+            <div class="universityOptions">
+                <label for="university">Select your University:</label>
+                <select th:field="*{university}" id="university" required>
+                    <option value="" hidden>Select University</option>
+                    <option th:each="i : ${universities}" th:value="${i}" th:text="${i}"></option>
+                </select>
+            </div>
+
+            <div class="facultyOption">
+                <label for="faculty">Select your Faculty:</label>
+                <select th:field="*{faculty}" id="faculty" required disabled>
+                    <option value="">Your Faculty</option>
+                </select>
+            </div>
+
+            <div class="language-option-section">
+                <h3>Select your favorite programming language:</h3>
+                <div class="radio-grid">
+                    <div th:each="language : ${progLang}" class="radio-grid-item">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input th:id="'radioFor' + ${language}" class="radio-input" type="radio" th:field="*{favoriteLanguage}" th:value="${language}">
+                            <label th:for="'radioFor' + ${language}" class="radio-label" th:text="${language}">Favorite Language</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="language-option-section">
+                <h3>Select programming languages:</h3>
+                <div class="radio-grid">
+                    <div th:each="language : ${progLang}" class="radio-grid-item">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input th:id="${language}" class="radio-input" type="checkbox" th:field="*{knownLanguages}" th:value="${language}">
+                            <label th:for="${language}" class="radio-label" th:text="${language}"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="language-option-section">
+                <h3>Select spoken languages:</h3>
+                <div class="radio-grid">
+                    <div th:each="language : ${languages}" class="radio-grid-item">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input th:id="checkboxFor + ${language}" class="radio-input" type="checkbox" th:field="*{spokenLanguages}" th:value="${language}">
+                            <label th:for="checkboxFor + ${language}" class="radio-label" th:text="${language}"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="submit-container">
+                <input type="submit" value="Register student" id="submit-button"/>
+            </div>
+        </form>
+
+        <br/>
+        <div class="links">
+            <a href="/student/list" onclick="return confirm('Are you sure you want to go to student list?')">Go to list page!</a>
+            <br/>
+            <a href="/" onclick="return confirm('Are you sure you want to go to main menu?')">Go to main menu!</a>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" th:src="@{/js/registrationPage.js}"></script>
+</body>
+
+</html>

@@ -1,17 +1,24 @@
-$(document).ready(function() {
-    $('#university').change(
-        function() {
-            $.getJSON(`/university/${$(this).val()}/faculties`, {
-                ajax : 'true'
-            }, function(data) {
-                let selectOptions = '';
-                for ( let i = 0; i < data.length; i++) {
-                    selectOptions += `<option value=\"${data[i].name}\">${data[i].name}</option>`
-                }
+const getFaculties = () => {
+    $.getJSON(`/university/${$('#university').val()}/faculties`, {
+        ajax : 'true'
+    }, (data) => {
+        let selectOptions = '';
+        for ( let i = 0; i < data.length; i++) {
+            selectOptions += `<option value=\"${data[i].name}\">${data[i].name}</option>`
+        }
 
-                $('#faculty').html(selectOptions).removeAttr('disabled');
-            });
-        });
+        $('#faculty').html(selectOptions).removeAttr('disabled');
+    });
+}
+
+ $('#university').change(getFaculties);
+
+$(document).ready(() => {
+    let schoolValue = $('#university').val();
+    if (schoolValue) {
+        getFaculties();
+        $('#faculty').removeAttr('disabled');
+    }
 });
 
 $(document).ready(function() {

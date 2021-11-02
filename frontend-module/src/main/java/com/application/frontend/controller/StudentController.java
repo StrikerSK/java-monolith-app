@@ -96,17 +96,16 @@ public class StudentController {
     @GetMapping("/edit/{studentId}")
     public String getStudentEdit(Model model, @PathVariable("studentId")Long id){
         Student getStudent = studentService.getStudent(id);
-        model.addAttribute("facultyValue", getStudent.getFaculty());
-        model.addAttribute("universityValue", getStudent.getUniversity());
+        model.addAttribute("universities", schoolService.getAllUniversities().stream().map(University::getName).collect(Collectors.toList()));
         model.addAttribute("countries", countryOptions.values());
         model.addAttribute("progLang", programingLanguageOptions.values());
         model.addAttribute("languages", spokenLanguageOptions.values());
-        model.addAttribute("editedStudent", getStudent);
-        return "jsp/student-edit";
+        model.addAttribute("student", getStudent);
+        return "school/student-edit-form";
     }
 
     @RequestMapping(value = "/postEdit", method = RequestMethod.POST)
-    public String confirmEdit(@ModelAttribute("editedStudent")Student student){
+    public String confirmEdit(@ModelAttribute("student")Student student){
         studentService.createStudent(student);
         return "redirect:/student/list";
     }
