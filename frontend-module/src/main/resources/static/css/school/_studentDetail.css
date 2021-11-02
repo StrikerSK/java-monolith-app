@@ -8,7 +8,7 @@ body{
 }
 
 .student-details{
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.8rem;
 }
 
 .student-details p, .student-details ul{
@@ -21,13 +21,6 @@ body{
     columns: 3;
     -webkit-columns: 3;
     -moz-columns: 3;
-}
-
-.link{
-    font-size: 24px;
-    text-align: center;
-    width: 30%;
-    margin: 0 auto;
 }
 
 @media screen and (max-width: 480px) {

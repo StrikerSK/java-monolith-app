@@ -13,17 +13,8 @@ body{
     margin: 0 auto;
 }
 
-h1{
-    font-size: 4.5rem;
-    text-align: center;
-}
-
-h3 {
-    font-size: 3rem;
-}
-
-label, span, input, select, p {
-    font-size: 1.8rem;
+h3, form {
+    margin-bottom: 2rem;
 }
 
 input, select {
@@ -43,34 +34,6 @@ input, select {
     flex-direction: column;
 }
 
-.countryOption, .inputText, .facultyOption, .universityOptions, .select-options{
-    width: 40%;
-    margin: 0 auto;
-}
-
-/* Start - links section */
-.links{
-    text-align: center;
-    width: 15%;
-    margin: 0 auto;
-}
-
-.links a{
-    color: wheat;
-}
-
-.links a:hover{
-    color: red;
-}
-/* End */
-
-/* Start - language radiobutton section */
-.language-label{
-    height: 30px;
-    width: 40%;
-    margin: 0 auto;
-}
-
 .radio-label {
     display: inline-block;
     vertical-align: top;
@@ -82,50 +45,31 @@ input, select {
     vertical-align: top;
 }
 
-fieldset {
-    width: 70%;
-    margin: 0 auto;
-    padding: 0;
-    border-radius: 12px;
+.select-options {
+    width: 100%;
 }
-
-.language-options {
-    display: inline-block;
-    margin: auto;
-}
-
-.radio-button-grid{
-    margin: 0;
-}
-
-.language-option-section li{
-    display: block;
-    float: left;
-    width: 20%;
-}
-/* end */
 
 .submit-container{
     width: 25%;
     margin: 10px auto 0;
 }
 
-.submit-container #submit-button{
-    width: 100%;
-    padding: 12px 12px;
+#submit-button{
+    width: 15rem;
+    padding: 1rem 1rem;
     border: none;
-    border-radius: 4px;
+    border-radius: 1rem;
     cursor: pointer;
 }
 
 input[type=text], select{
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 0.8rem;
+    border: 0.2rem solid #ccc;
+    border-radius: 1.5rem;
     box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
+    margin-top: 0.6rem;
+    margin-bottom: 1.6rem;
     resize: vertical;
 }
 
@@ -180,63 +124,6 @@ input[type=text], select{
     }
 
     fieldset{
-        width: 100%;
-    }
-
-}
-
-
-/*Student confirmation*/
-.ConfBody{
-    width: 40%;
-    margin: 0 auto;
-}
-
-.ConfPanel{
-    width: 75%;
-    margin: 0 auto 20px;
-}
-
-.ConfPanel td{
-    padding: 3px;
-    font-size: 20px;
-}
-
-.column1 td{
-    width: 20%
-}
-
-.column2 td{
-    width: 80%
-}
-
-.ConfLinks{
-    font-size: 20px;
-    text-align: center;
-    width: 75%;
-    margin: 0 auto;
-}
-
-.ConfLinks a{
-    color: wheat;
-}
-
-.ConfLinks a:hover{
-    color: red;
-}
-
-@media screen and (max-width: 480px) {
-
-
-    h1{
-        font-size: 30px;
-    }
-
-    .ConfPanel td, .ConfLinks{
-        font-size: 15px;
-    }
-
-    .ConfBody, .ConfPanel{
         width: 100%;
     }
 

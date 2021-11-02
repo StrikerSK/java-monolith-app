@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Student card</title>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="First website ever written">
+    <meta name="keywords" content="kristian,hanus,strikersk,web,developer,personal,java,spring,hibernate">
+    <meta name="author" content="Kristian Hanus">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" th:href="@{/css/_base.css}"/>
+    <link rel="stylesheet" th:href="@{/css/_navigationBar.css}"/>
+    <link rel="stylesheet" th:href="@{/css/_aboutPage.css}"/>
+    <link rel="stylesheet" th:href="@{/css/school/_studentRegistration.css}"/>
+    <link rel="stylesheet" th:href="@{/css/school/_studentCard.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/5.15.4/css/fontawesome.min.css}">
+
+    <script type="text/javascript" th:src="@{/js/navigation-bar.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/jquery/3.6.0/dist/jquery.min.js}"></script>
+</head>
+
+<body>
+
+    <div class="centered-box">
+        <div>
+            <h1 th:text="${searchedID == null} ? 'Student saved' : 'Student detail'"></h1>
+            <table class="ConfPanel">
+                <colgroup>
+                    <col style="width: 40%">
+                    <col style="width: 60%">
+                </colgroup>
+                <tr>
+                    <td>Student name:</td>
+                    <td th:text="${student.firstName} + ' ' + ${student.lastName}"></td>
+                </tr>
+                <tr>
+                    <td>Favorite language:</td>
+                    <td th:text="${student.favoriteLanguage}"></td>
+                </tr>
+                <tr>
+                    <td>Known languages:</td>
+                    <td th:text="${student.stringProgramming}"></td>
+                </tr>
+                <tr>
+                    <td>Spoken languages:</td>
+                    <td th:text="${student.stringSpoken}"></td>
+                </tr>
+                <tr th:if="${student.country != null}">
+                    <td>Country:</td>
+                    <td th:text="${student.country}"></td>
+                </tr>
+                <tr th:if="${student.university != null}">
+                    <td>University:</td>
+                    <td th:text="${student.university}"></td>
+                </tr>
+                <tr th:if="${student.faculty != null}">
+                    <td>Faculty:</td>
+                    <td th:text="${student.faculty}"></td>
+                </tr>
+                <tr th:if="${student.typeOfStudy != null}">
+                    <td>Type of study:</td>
+                    <td th:text="${student.typeOfStudy}"></td>
+                </tr>
+                <tr th:if="${student.grade != null}">
+                    <td>Year of study:</td>
+                    <td th:text="${student.grade}"></td>
+                </tr>
+            </table>
+
+            <div class="link-box">
+                <a href="/" class="ConfMain">Main menu</a>
+                <a href="/student/list" class="ConfList">Student list</a>
+                <a th:if="${searchedID == null}" href="/student/add" onclick="return confirm('Add student?')">New student</a>
+                <a th:if="${searchedID != null}" th:href="@{'/student/edit/' + ${student.id}}" title="This link edit student" target="_blank">Edit student</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

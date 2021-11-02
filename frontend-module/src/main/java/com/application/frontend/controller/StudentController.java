@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
@@ -39,7 +38,7 @@ public class StudentController {
 
     private final ISchoolService schoolService;
 
-    @RequestMapping("/registrationForm")
+    @RequestMapping("/add")
     public String registerStudent(Model model){
         Student theStudent = new Student();
         model.addAttribute("student", theStudent);
@@ -47,14 +46,14 @@ public class StudentController {
         model.addAttribute("progLang", programingLanguageOptions.values());
         model.addAttribute("languages", spokenLanguageOptions.values());
         model.addAttribute("universities", schoolService.getAllUniversities().stream().map(University::getName).collect(Collectors.toList()));
-        return "school/registration-page";
+        return "school/studentForm";
     }
 
-    @RequestMapping("/processForm")
-    public String processForm(@ModelAttribute("student")Student theStudent, Model model){
-        studentService.createStudent(theStudent);
-        model.addAttribute("theStudent", theStudent);
-        return "school/student-confirmation";
+    @RequestMapping("/process")
+    public String processForm(@ModelAttribute("student")Student student, Model model){
+        studentService.createStudent(student);
+        model.addAttribute("student", student);
+        return "school/studentCard";
     }
 
     @RequestMapping("/list")
@@ -82,7 +81,7 @@ public class StudentController {
             model.addAttribute("userCount", count);
             model.addAttribute("random", random);
         }
-        return "school/student-list";
+        return "school/studentList";
     }
 
     @GetMapping("/detail/{studentId}")
@@ -90,7 +89,7 @@ public class StudentController {
         Student student = studentService.getStudent(id);
         model.addAttribute("student", student);
         model.addAttribute("searchedID", id);
-        return "school/student-detail";
+        return "school/studentCard";
     }
 
     @GetMapping("/edit/{studentId}")
@@ -101,13 +100,7 @@ public class StudentController {
         model.addAttribute("progLang", programingLanguageOptions.values());
         model.addAttribute("languages", spokenLanguageOptions.values());
         model.addAttribute("student", getStudent);
-        return "school/student-edit-form";
-    }
-
-    @RequestMapping(value = "/postEdit", method = RequestMethod.POST)
-    public String confirmEdit(@ModelAttribute("student")Student student){
-        studentService.createStudent(student);
-        return "redirect:/student/list";
+        return "school/studentForm";
     }
 
     @RequestMapping("/delete/{studentId}")

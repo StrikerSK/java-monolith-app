@@ -1,0 +1,41 @@
+/*Student confirmation*/
+.ConfPanel {
+    margin-bottom: 1rem;
+}
+
+.ConfPanel td{
+    padding: 0.3rem;
+    font-size: 2.2rem;
+}
+
+.ConfLinks{
+    font-size: 20px;
+    text-align: center;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.ConfLinks a{
+    color: wheat;
+}
+
+.ConfLinks a:hover{
+    color: red;
+}
+
+@media screen and (max-width: 480px) {
+
+
+    h1{
+        font-size: 30px;
+    }
+
+    .ConfPanel td, .ConfLinks{
+        font-size: 15px;
+    }
+
+    .ConfBody, .ConfPanel{
+        width: 100%;
+    }
+
+}

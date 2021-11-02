@@ -1,8 +1,10 @@
-function makeResponsive() {
-    let topNav = document.getElementById("myTopnav");
-    if (topNav.className === "navbar") {
-        topNav.className += " responsive";
+const makeResponsive = () => {
+    const newClass = "responsive";
+    let topNav = $('#myTopnav');
+
+    if (topNav.hasClass(newClass)) {
+        topNav.removeClass(newClass);
     } else {
-        topNav.className = "navbar";
+        topNav.addClass(newClass);
     }
 }

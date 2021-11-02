@@ -25,12 +25,14 @@ h3 {
     text-align: center;
 }
 
-th, td, a, p, span, strong, input, select {
+th, td, a, p, span, strong, input, select, label {
     font-size: 1.8rem;
 }
 
 .centered-box {
     display: flex;
+    flex-direction: column;
+
     justify-content: center;
     align-items: center;
     height: 100%;
