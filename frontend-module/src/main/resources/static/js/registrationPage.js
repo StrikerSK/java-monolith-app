@@ -1,8 +1,7 @@
 $(document).ready(function() {
     $('#university').change(
         function() {
-            $.getJSON('/university/getFaculties', {
-                university : $(this).val(),
+            $.getJSON(`/university/${$(this).val()}/faculties`, {
                 ajax : 'true'
             }, function(data) {
                 let selectOptions = '';

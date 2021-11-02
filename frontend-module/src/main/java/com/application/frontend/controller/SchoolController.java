@@ -2,11 +2,11 @@ package com.application.frontend.controller;
 
 import com.application.school.entity.Faculty;
 import com.application.school.entity.University;
-import com.application.school.repository.UniversityRepository;
-import com.application.school.service.SchoolService;
+import com.application.school.service.ISchoolService;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Comparator;
@@ -15,14 +15,14 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/university")
-public class UniversityController {
+@Slf4j
+public class SchoolController {
 
-    private final UniversityRepository universityRepository;
-    private final SchoolService schoolService;
+    private final ISchoolService schoolService;
 
-    @RequestMapping("/getUniversities")
+    @RequestMapping("/list")
     public List<University> getUniversities(){
-        List<University> universities = universityRepository.findAll();
+        List<University> universities = schoolService.getAllUniversities();
         universities.sort(Comparator.comparing(University::getName));
         return universities;
     }
@@ -32,8 +32,9 @@ public class UniversityController {
         return this.schoolService.getAllFaculties();
     }
 
-    @RequestMapping("/getFaculties")
-    public List<Faculty> getAllUniversityFaculties(@RequestParam("university")String name){
+    @RequestMapping("/{name}/faculties")
+    public List<Faculty> getAllUniversityFaculties(@PathVariable String name){
+        log.info("Searched university: {}", name);
         return this.schoolService.getUniversityFaculties(name);
     }
 

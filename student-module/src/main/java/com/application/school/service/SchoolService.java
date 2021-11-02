@@ -2,7 +2,6 @@ package com.application.school.service;
 
 import com.application.school.entity.Faculty;
 import com.application.school.entity.University;
-import com.application.school.repository.FacultyRepository;
 import com.application.school.repository.UniversityRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -10,17 +9,19 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
 public class SchoolService implements ISchoolService {
 
     private final UniversityRepository universityRepository;
-    private final FacultyRepository facultyRepository;
 
     // Lookup for all faculties data in DB
     public List<Faculty> getAllFaculties(){
-        return facultyRepository.findAll();
+        return universityRepository.findAll().stream()
+                .flatMap(e -> e.getFaculties().stream())
+                .collect(Collectors.toList());
     }
 
     // Find faculties connected to specific university

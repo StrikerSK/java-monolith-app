@@ -46,9 +46,9 @@
         </div>
 
             <div class="link-box">
-            <a href="/student/edit/${studentDetail.id}" onclick="return confirm('Are you sure you want to edit student?')">Edit
+            <a th:href="@{'/student/edit/' + ${student.id}}" onclick="return confirm('Are you sure you want to edit student?')">Edit
                 student!</a>
-            <a href="/student/delete/${studentDetail.id}" onclick="return confirm('Are you sure you want to delete student?')">Delete
+            <a th:href="@{'/student/delete/' + ${student.id}}" onclick="return confirm('Are you sure you want to delete student?')">Delete
                 student!</a>
         </div>
         </div>
