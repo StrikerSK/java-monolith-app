@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Mali');
 
 * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
     font-size: 62.5%;
     font-family: 'Montserrat', sans-serif;
 }
@@ -27,6 +33,10 @@ h3 {
 
 th, td, a, p, span, strong, input, select, label {
     font-size: 1.8rem;
+}
+
+a {
+    text-decoration: none;
 }
 
 .centered-box {

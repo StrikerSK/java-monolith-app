@@ -13,24 +13,27 @@
     </head>
 
     <body>
-        <div class="navbar" id="myTopnav">
-            <a href="/">Home</a>
-<!--            <a href="/other/BMR">BMR</a>-->
-<!--            <a href="/other/bmrjava">BMR (Java)</a>-->
-            <a href="/student/list">Student page</a>
-<!--            <div class="dropdown">-->
-<!--                <button class="dropbtn">User page-->
-<!--                    <i class="fa fa-caret-down"></i>-->
-<!--                </button>-->
-<!--                <div class="dropdown-content">-->
-<!--                    <a href="/user/list">User list</a>-->
-<!--                    <a href="/user/registerUser">User registration</a>-->
-<!--                </div>-->
-<!--            </div>-->
-            <a href="javascript:void(0);" class="icon" onclick="makeResponsive()">
-                <i class="fa fa-bars"></i>
-            </a>
-        </div>
+        <header class="header">
+            <nav class="navbar">
+                <a href="/" class="nav-logo">Application</a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="/student/add" class="nav-link">Student form</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/validation/add" class="nav-link">Validation form</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/random" class="nav-link">Random page</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </header>
 
         <div class="detailsBox">
             <div class="validation-result">
@@ -64,6 +67,6 @@
             </div>
         </div>
 
-        <script type="text/javascript" th:src="@{/js/navigation-bar.js}"></script>
+        <script type="text/javascript" th:src="@{/js/navigationBar.js}"></script>
     </body>
 </html>

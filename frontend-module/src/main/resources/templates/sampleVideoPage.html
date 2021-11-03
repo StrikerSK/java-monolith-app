@@ -5,38 +5,39 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Video show</title>
+        <link rel="stylesheet" th:href="@{/css/_base.css}"/>
+        <link rel="stylesheet" th:href="@{/css/_navigationBar.css}"/>
+        <link rel="stylesheet" th:href="@{/css/_sampleVideoPage.css}"/>
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/5.15.4/css/fontawesome.min.css}">
 
-        <link th:href="@{/css/_base.css}" rel="stylesheet" />
-        <link th:href="@{/css/_navigationBar.css}" rel="stylesheet" />
-        <link th:href="@{/css/_sampleVideoPage.css}" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-        <script type="text/javascript" th:src="@{/js/navigation-bar.js}"></script>
+        <script type="text/javascript" rel="script" th:src="@{/webjars/jquery/3.6.0/dist/jquery.min.js}"></script>
     </head>
 
     <body>
-        <div class="navbar" id="myTopnav">
-            <a href="/">Home</a>
-            <a href="/other/BMR">BMR</a>
-            <a href="/other/bmrjava">BMR (Java)</a>
-            <a href="/student/list">Student page</a>
-            <a href="/validation/add">Validation page</a>
-            <div class="dropdown">
-                <button class="dropbtn">User page
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="/user/list">User list</a>
-                    <a href="/user/registerUser">User registration</a>
+        <header class="header">
+            <nav class="navbar">
+                <a href="/" class="nav-logo">Application</a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="/student/add" class="nav-link">Student form</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/validation/add" class="nav-link">Validation form</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/random" class="nav-link">Random page</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
                 </div>
-            </div>
-            <a href="javascript:void(0);" class="icon" onclick="makeResponsive()">
-                <i class="fa fa-bars"></i>
-            </a>
-        </div>
+            </nav>
+        </header>
 
         <div class="incenter">
-            <h1>Random video in iframe</h1>
+            <h1>Random video in iFrame</h1>
             <div class="resp-container">
                 <div class="video-box">
                     <iframe class="resp-iframe" src="https://www.youtube.com/embed/Sagg08DrO5U" allow="encrypted-media" allowfullscreen></iframe>
@@ -44,5 +45,6 @@
             </div>
         </div>
 
+        <script type="text/javascript" th:src="@{/js/navigationBar.js}"></script>
     </body>
 </html>

@@ -21,6 +21,7 @@ body{
 
 .main-text h1{
     font-size: 6rem;
+    margin-bottom: 3rem;
     animation: colorchange 6s linear infinite;
 }
 

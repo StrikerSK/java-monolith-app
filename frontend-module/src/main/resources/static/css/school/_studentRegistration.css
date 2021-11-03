@@ -5,11 +5,13 @@ body{
     -o-background-size: cover;
     background-size: cover;
     color: wheat;
+    width: 100vw;
+    height: 160vh;
 }
 
 /*Student registration form*/
 .RegisterPage{
-    width: 50%;
+    width: 50vw;
     margin: 0 auto;
 }
 
@@ -21,17 +23,23 @@ input, select {
     color: black;
 }
 
+.language-option-section {
+    margin-bottom: 2rem;
+}
+
 .radio-grid {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
 }
 
 .radio-grid-item {
-    width: 33.3%;
+    width: 30%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
 }
 
 .radio-label {
@@ -43,6 +51,8 @@ input, select {
 .radio-input {
     display: inline-block;
     vertical-align: top;
+    width: 3rem;
+    height: 1.5rem;
 }
 
 .select-options {
@@ -50,8 +60,8 @@ input, select {
 }
 
 .submit-container{
-    width: 25%;
-    margin: 10px auto 0;
+    display: flex;
+    justify-content: center;
 }
 
 #submit-button{
@@ -73,58 +83,19 @@ input[type=text], select{
     resize: vertical;
 }
 
-@media screen and (max-width: 480px) {
+@media (max-width: 768px) {
 
-    .RegisterPage, .RegisterForm, .links, .inputText, .countryOption, .ConfBody, .language-option-section .language-label, .facultyOption, .universityOptions, .select-options{
-        width: 97%;
-        margin: 0 auto;
+    body {
+        height: 190vh;
     }
 
-    .language-option-section ul{
-        width: 100%;
-        padding: 0;
-        margin: 0 0 0;
+    .RegisterPage {
+        width: 90vw;
+        margin: 0;
     }
 
-    .language-option-section li{
-        width: 33%;
-    }
-
-    .submit-container{
+    .radio-grid-item {
         width: 50%;
-        margin: 15px auto 0;
-    }
-
-    fieldset{
-        width: 100%;
-    }
-
-}
-
-@media screen and (min-width: 481px) and (max-width: 920px) {
-
-    .RegisterPage, .RegisterForm, .links, .inputText, .countryOption, .ConfBody, .language-option-section .language-label, .facultyOption, .universityOptions, .select-options{
-        width: 80%;
-        margin: 0 auto;
-    }
-
-    .language-option-section ul{
-        width: 100%;
-        padding: 0;
-        margin: 0 0 0;
-    }
-
-    .language-option-section li{
-        width: 33%;
-    }
-
-    .submit-container{
-        width: 50%;
-        margin: 15px auto 0;
-    }
-
-    fieldset{
-        width: 100%;
     }
 
 }
