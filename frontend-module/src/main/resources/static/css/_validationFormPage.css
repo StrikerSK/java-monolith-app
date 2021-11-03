@@ -1,0 +1,126 @@
+body {
+    background: url("../image/customer-reg.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: wheat;
+
+    height: 100vh;
+    width: 100vw;
+    margin: 0 !important;
+}
+
+/*Registration page of customer registration form*/
+.main-text {
+    height: 95vh;
+    background: rgba(50, 29, 38, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-box {
+    width: 40%;
+    height: max-content;
+}
+
+.form-box h1{
+    text-align: center;
+    font-size: 3.5rem;
+}
+
+.form-box i{
+    font-size: 1.4rem;
+}
+
+.inputs__field label{
+    font-size: 2.5rem;
+}
+
+.inputs__field input{
+    font-size: 1.6rem;
+}
+
+.form-box a {
+    position: relative;
+    left: 30%;
+    color: bisque;
+}
+
+.form-box a:hover{
+    color: wheat;
+}
+
+.RegForm{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.submit-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding-top: 20px;
+}
+
+.SubmitButt{
+    font-size: 1.25rem;
+}
+
+.inputs input[type=text], input[type=number], .inputs select{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+.hasError {
+    color: red;
+    display:block;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.noError {
+    display: none
+}
+
+@media screen and (max-width: 767px) {
+
+    /*Registration page of customer registration form*/
+    .main-text{
+        width: 100vw;
+        align-content: center;
+        /*background: none;*/
+    }
+
+    .form-box {
+        width: 100%;
+        height: max-content;
+    }
+
+    .form-box h1{
+        text-align: center;
+        margin: 3rem 1rem;
+    }
+
+    .form-box a{
+        position: relative;
+        left: 30%;
+        color: black;
+    }
+
+    .form-box a:hover{
+        color: wheat;
+    }
+
+    .RegForm{
+        width: 90%;
+        margin: 0 auto;
+    }
+
+}

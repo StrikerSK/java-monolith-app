@@ -1,0 +1,101 @@
+body{
+    background: url('/image/sum-image.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: wheat;
+    width: 100vw;
+    height: 160vh;
+}
+
+/*Student registration form*/
+.RegisterPage{
+    width: 50vw;
+    margin: 0 auto;
+}
+
+h3, form {
+    margin-bottom: 2rem;
+}
+
+input, select {
+    color: black;
+}
+
+.language-option-section {
+    margin-bottom: 2rem;
+}
+
+.radio-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.radio-grid-item {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.radio-label {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 5%;
+}
+
+.radio-input {
+    display: inline-block;
+    vertical-align: top;
+    width: 3rem;
+    height: 1.5rem;
+}
+
+.select-options {
+    width: 100%;
+}
+
+.submit-container{
+    display: flex;
+    justify-content: center;
+}
+
+#submit-button{
+    width: 15rem;
+    padding: 1rem 1rem;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+input[type=text], select{
+    width: 100%;
+    padding: 0.8rem;
+    border: 0.2rem solid #ccc;
+    border-radius: 1.5rem;
+    box-sizing: border-box;
+    margin-top: 0.6rem;
+    margin-bottom: 1.6rem;
+    resize: vertical;
+}
+
+@media (max-width: 768px) {
+
+    body {
+        height: 190vh;
+    }
+
+    .RegisterPage {
+        width: 90vw;
+        margin: 0;
+    }
+
+    .radio-grid-item {
+        width: 50%;
+    }
+
+}

@@ -11,6 +11,6 @@ public class ValidationMockedService implements IValidationService {
 	Logger LOG = LoggerFactory.getLogger(ValidationMockedService.class);
 
 	public void createCustomer(ValidationEntity validationEntity) {
-		LOG.info("createCustomer(): {}", validationEntity.toString());
+		LOG.info("Create customer: {}", validationEntity.toString());
 	}
 }
