@@ -13,8 +13,6 @@
 
     <link rel="stylesheet" th:href="@{/css/_base.css}"/>
     <link rel="stylesheet" th:href="@{/css/_navigationBar.css}"/>
-    <link rel="stylesheet" th:href="@{/css/_aboutPage.css}"/>
-    <link rel="stylesheet" th:href="@{/css/school/_studentRegistration.css}"/>
     <link rel="stylesheet" th:href="@{/webjars/font-awesome/5.15.4/css/fontawesome.min.css}">
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/webjars/datatables/1.10.25/css/dataTables.jqueryui.min.css}">
@@ -23,24 +21,6 @@
     <script type="text/javascript" rel="script" th:src="@{/webjars/jquery/3.6.0/dist/jquery.min.js}"></script>
     <script type="text/javascript" rel="script" th:src="@{/webjars/datatables/1.10.25/js/jquery.dataTables.min.js}"></script>
     <script type="text/javascript" rel="script" th:src="@{/webjars/popper.js/2.9.3/umd/popper.min.js}"></script>
-
-    <script type="text/javascript">
-        $(document).ready(
-            function() {
-                $.getJSON('${findUsersURL}', {
-                    ajax : 'true'
-                }, function(data) {
-                    let html = '';
-                    let len = data.length;
-                    for ( let i = 0; i < len; i++) {
-                        html += '<li class="dropdown-item"><a href="/user/detail/' + data[i].id + '">' + data[i].username + '</a></li>';
-                    }
-                    html += '</li>';
-
-                    $('#universities').html(html);
-                });
-            });
-    </script>
 </head>
 
 <body>
@@ -56,28 +36,28 @@
                     <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/other/BMR">BMR</a>
+                    <a class="nav-link" href="ranodm">Random Page</a>
                 </li>
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="/other/bmrjava">BMR(Java)</a>-->
+<!--                </li>-->
                 <li class="nav-item">
-                    <a class="nav-link" href="/other/bmrjava">BMR(Java)</a>
+                    <a class="nav-link" href="/validation/add">Validation form</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/validation/add">Customer page</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        User page
-                    </a>
-                    <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-                        <li class="dropdown-item"><a href="/user/list">User list</a></li>
-                        <li class="dropdown-item"><a href="/user/registerUser">User registration</a></li>
-                        <li class="dropdown-divider"></li>
-                        <li class="dropdown-submenu">
-                            <a  class="dropdown-item" tabindex="-1" href="/user/list">Open user</a>
-                            <ul class="dropdown-menu" id="universities"></ul>
-                        </li>
-                    </ul>
-                </li>
+<!--                <li class="nav-item dropdown">-->
+<!--                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                        User page-->
+<!--                    </a>-->
+<!--                    <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">-->
+<!--                        <li class="dropdown-item"><a href="/user/list">User list</a></li>-->
+<!--                        <li class="dropdown-item"><a href="/user/registerUser">User registration</a></li>-->
+<!--                        <li class="dropdown-divider"></li>-->
+<!--                        <li class="dropdown-submenu">-->
+<!--                            <a  class="dropdown-item" tabindex="-1" href="/user/list">Open user</a>-->
+<!--                            <ul class="dropdown-menu" id="universities"></ul>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </li>-->
                 <li class="nav-item">
                     <a class="nav-link disabled" href="javascript:void(0)">Student page</a>
                 </li>
@@ -85,8 +65,8 @@
         </div>
     </nav>
 
-    <div class="container centered-box">
-        <div>
+    <div class="centered-box">
+        <div class="container">
             <h1 class="h1 text-center">This is student list page of my web application!</h1>
             <br/>
 
