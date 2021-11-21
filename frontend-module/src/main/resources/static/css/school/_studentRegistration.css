@@ -6,7 +6,7 @@ body{
     background-size: cover;
     color: wheat;
     width: 100vw;
-    height: 160vh;
+    height: 175vh;
 }
 
 /*Student registration form*/
@@ -86,7 +86,7 @@ input[type=text], select{
 @media (max-width: 768px) {
 
     body {
-        height: 190vh;
+        height: 220vh;
     }
 
     .RegisterPage {

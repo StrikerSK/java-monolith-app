@@ -11,7 +11,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
+import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Configuration
 public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
@@ -24,17 +27,15 @@ public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
 	}
 
 	@Bean
-	public PropertiesFactoryBean programingLanguageOptions(){
-		PropertiesFactoryBean bean = new PropertiesFactoryBean();
-		bean.setLocation(new ClassPathResource("properties/programmingLanguages.properties"));
-		return bean;
+	public List<String> programingLanguagesList() {
+		return Stream.of("C", "C++", "C#", "Objective-C", "Golang", "Java", "Javascript", "Kotlin", "Python", "R",
+				"Ruby", "Rust", "Scala", "Swift", "Typescript").collect(Collectors.toList());
 	}
 
 	@Bean
-	public PropertiesFactoryBean spokenLanguageOptions(){
-		PropertiesFactoryBean bean = new PropertiesFactoryBean();
-		bean.setLocation(new ClassPathResource("properties/spokenLanguages.properties"));
-		return bean;
+	public List<String> spokenLanguagesList() {
+		return Stream.of("Arabic", "Chinese", "Czech", "Dutch", "English", "French", "German", "Hebrew", "Italian",
+				"Polish", "Portuguese", "Russian", "Slovak", "Spanish", "Vietnamese").collect(Collectors.toList());
 	}
 
 	@Bean

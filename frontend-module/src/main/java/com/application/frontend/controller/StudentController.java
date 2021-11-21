@@ -26,10 +26,10 @@ import java.util.stream.Collectors;
 public class StudentController {
 
     @Resource
-    private final SortedMap<String, String> spokenLanguageOptions;
+    private final List<String> spokenLanguagesList;
 
     @Resource
-    private final SortedMap<String, String> programingLanguageOptions;
+    private final List<String> programingLanguagesList;
 
     @Resource
     private final SortedMap<String, String> countryOptions;
@@ -43,8 +43,8 @@ public class StudentController {
         Student theStudent = new Student();
         model.addAttribute("student", theStudent);
         model.addAttribute("countries", countryOptions.values());
-        model.addAttribute("progLang", programingLanguageOptions.values());
-        model.addAttribute("languages", spokenLanguageOptions.values());
+        model.addAttribute("progLang", programingLanguagesList);
+        model.addAttribute("languages", spokenLanguagesList);
         model.addAttribute("universities", schoolService.getAllUniversities().stream().map(University::getName).collect(Collectors.toList()));
         return "school/studentForm";
     }
@@ -97,8 +97,8 @@ public class StudentController {
         Student getStudent = studentService.getStudent(id);
         model.addAttribute("universities", schoolService.getAllUniversities().stream().map(University::getName).collect(Collectors.toList()));
         model.addAttribute("countries", countryOptions.values());
-        model.addAttribute("progLang", programingLanguageOptions.values());
-        model.addAttribute("languages", spokenLanguageOptions.values());
+        model.addAttribute("progLang", programingLanguagesList);
+        model.addAttribute("languages", spokenLanguagesList);
         model.addAttribute("student", getStudent);
         return "school/studentForm";
     }
