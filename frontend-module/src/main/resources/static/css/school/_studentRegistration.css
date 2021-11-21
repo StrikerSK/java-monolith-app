@@ -6,13 +6,7 @@ body{
     background-size: cover;
     color: wheat;
     width: 100vw;
-    height: 175vh;
-}
-
-/*Student registration form*/
-.RegisterPage{
-    width: 50vw;
-    margin: 0 auto;
+    height: 160vh;
 }
 
 h3, form {
@@ -21,6 +15,22 @@ h3, form {
 
 input, select {
     color: black;
+}
+
+/*Student registration form*/
+.RegisterPage {
+    width: 50vw;
+    margin: 0 auto;
+}
+
+.input-form__text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.input-box__text {
+    width: 49%;
 }
 
 .language-option-section {
@@ -92,6 +102,14 @@ input[type=text], select{
     .RegisterPage {
         width: 90vw;
         margin: 0;
+    }
+
+    .input-form__text {
+        flex-direction: column;
+    }
+
+    .input-box__text {
+        width: 100%;
     }
 
     .radio-grid-item {

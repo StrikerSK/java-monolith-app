@@ -50,14 +50,18 @@
         <div class="RegisterForm">
             <form action="#" method="post" th:action="@{/student/process}" th:object="${student}">
 
-                <div class="inputs__field">
+                <div class="input-form__text">
                     <input hidden th:field="*{id}" th:if="${student.id != null}" th:value="${student.id}">
 
-                    <label for="firstName"><span>First name:</span></label>
-                    <input id="firstName" name="firstName" required th:field="*{firstName}" type="text"/>
+                    <div class="input-box__text">
+                        <label for="firstName"><span>First name:</span></label>
+                        <input id="firstName" name="firstName" required th:field="*{firstName}" type="text"/>
+                    </div>
 
-                    <label for="lastName"><span>Last name:</span></label>
-                    <input id="lastName" name="lastName" required th:field="*{lastName}" type="text"/>
+                    <div class="input-box__text">
+                        <label for="lastName"><span>Last name:</span></label>
+                        <input id="lastName" name="lastName" required th:field="*{lastName}" type="text"/>
+                    </div>
                 </div>
 
                 <div class="select-options">
@@ -68,22 +72,26 @@
                     </select>
                 </div>
 
-                <div class="select-options">
-                    <label for="typeOfStudy">Select study type:</label>
-                    <select id="typeOfStudy" th:field="*{typeOfStudy}">
-                        <option hidden="hidden" value="">Select type of study</option>
-                        <option value="Bachelor">Bachelor</option>
-                        <option value="Masters">Masters</option>
-                        <option value="PhD student">PhD student</option>
-                    </select>
+                <div class="input-form__text">
+                    <div class="input-box__text">
+                        <label for="typeOfStudy">Select study type:</label>
+                        <select id="typeOfStudy" th:field="*{typeOfStudy}">
+                            <option hidden="hidden" value="">Select type of study</option>
+                            <option value="Bachelor">Bachelor</option>
+                            <option value="Masters">Masters</option>
+                            <option value="PhD student">PhD student</option>
+                        </select>
+                     </div>
+
+                    <div class="input-box__text">
+                        <label for="grade">Select grade:</label>
+                        <select disabled id="grade" th:field="*{grade}">
+                            <option hidden="hidden" value="">Select year</option>
+                        </select>
+                    </div>
                 </div>
 
-                <div class="select-options">
-                    <label for="grade">Select grade:</label>
-                    <select disabled id="grade" th:field="*{grade}">
-                        <option hidden="hidden" value="">Select year</option>
-                    </select>
-                </div>
+
 
                 <div class="select-options">
                     <label for="university">Select university:</label>
