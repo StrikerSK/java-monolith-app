@@ -28,6 +28,7 @@
         <module>frontend-module</module>
         <module>bmr-module</module>
         <module>student-module</module>
+        <module>rest-module</module>
     </modules>
 
     <dependencies>

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.application.frotnend</groupId>
+    <groupId>com.application.frontend</groupId>
     <artifactId>frontend-module</artifactId>
 
     <properties>

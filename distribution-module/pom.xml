@@ -55,20 +55,14 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.application</groupId>
-            <artifactId>customer-module</artifactId>
-            <version>${parent.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.application.frotnend</groupId>
+            <groupId>com.application.frontend</groupId>
             <artifactId>frontend-module</artifactId>
             <version>${parent.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>com.application.school</groupId>
-            <artifactId>student-module</artifactId>
+            <groupId>com.application.rest</groupId>
+            <artifactId>rest-module</artifactId>
             <version>${parent.version}</version>
         </dependency>
     </dependencies>

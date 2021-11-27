@@ -1,4 +1,4 @@
-package com.application.frontend.controller;
+package com.application.rest;
 
 import com.application.school.entity.Faculty;
 import com.application.school.entity.University;
@@ -14,9 +14,9 @@ import java.util.List;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/university")
+@RequestMapping("/api/university")
 @Slf4j
-public class SchoolController {
+public class SchoolRestController {
 
     private final ISchoolService schoolService;
 
@@ -35,7 +35,7 @@ public class SchoolController {
     @RequestMapping("/{name}/faculties")
     public List<Faculty> getAllUniversityFaculties(@PathVariable String name){
         log.info("Searched university: {}", name);
-        return this.schoolService.getUniversityFaculties(name);
+        return schoolService.getUniversityFaculties(name);
     }
 
 }
