@@ -1,5 +1,6 @@
 package com.application.rest;
 
+import com.application.exceptions.InvalidVariableException;
 import com.application.school.entity.Student;
 import com.application.school.service.IStudentService;
 import lombok.AllArgsConstructor;
@@ -31,10 +32,13 @@ public class StudentRestController {
 			@RequestParam(name = "faculty", required = false)String facultyName
 	) {
 		List<Student> students = studentService.getStudents();
+
 		if (StringUtils.isNotBlank(universityName) && StringUtils.isNotBlank(facultyName)) {
 			students = studentService.getFacultyStudents(universityName, facultyName);
 		} else if (StringUtils.isNotBlank(universityName) && StringUtils.isBlank(facultyName)) {
 			students = studentService.getUniversityStudents(universityName);
+		} else if (StringUtils.isBlank(universityName) && StringUtils.isNotBlank(facultyName)) {
+			throw new InvalidVariableException("University name not provided");
 		}
 
 		return students;
