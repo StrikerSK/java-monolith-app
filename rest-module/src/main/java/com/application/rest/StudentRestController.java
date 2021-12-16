@@ -21,7 +21,7 @@ import java.util.List;
 @Slf4j
 @AllArgsConstructor
 @RestController
-@RequestMapping("/api/student")
+@RequestMapping("${com.application.contextPath:/api}/student")
 public class StudentRestController {
 
 	private final IStudentService studentService;
