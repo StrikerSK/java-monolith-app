@@ -1,6 +1,7 @@
-package com.application.main.exceptions;
+package com.application.main.handlers;
 
 import com.application.exceptions.InvalidVariableException;
+import com.application.main.entity.ErrorResponse;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -1,4 +1,4 @@
-package com.application.main.exceptions;
+package com.application.main.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
