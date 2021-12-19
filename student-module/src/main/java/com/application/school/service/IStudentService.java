@@ -10,9 +10,10 @@ public interface IStudentService {
 
      Student getStudent(Long id);
      void deleteStudent(Long id);
-     void createStudent(Student student);
+     void saveStudent(Student student);
      List<Student> getStudents();
-     List<Student> getLimitedStudents(int count);
-     List<Student> getRandomStudents(Integer count);
+
+     List<Student> getUniversityStudents(String universityName);
+     List<Student> getFacultyStudents(String universityName, String facultyName);
 
 }

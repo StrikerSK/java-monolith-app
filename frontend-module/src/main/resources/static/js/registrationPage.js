@@ -1,5 +1,5 @@
 const getFaculties = () => {
-    $.getJSON(`/university/${$('#university').val()}/faculties`, {
+    $.getJSON(`/api/university/${$('#university').val()}/faculties`, {
         ajax : 'true'
     }, (data) => {
         let selectOptions = '';

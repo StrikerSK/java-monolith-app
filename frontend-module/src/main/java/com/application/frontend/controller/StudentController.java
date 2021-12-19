@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.SortedMap;
 import java.util.stream.Collectors;
@@ -51,36 +53,35 @@ public class StudentController {
 
     @RequestMapping("/process")
     public String processForm(@ModelAttribute("student")Student student, Model model){
-        studentService.createStudent(student);
+        studentService.saveStudent(student);
         model.addAttribute("student", student);
         return "school/studentCard";
     }
 
     @RequestMapping("/list")
-    public String getStudentList(Model model, @RequestParam(name = "count",required = false)Integer count, @RequestParam(name = "random", required = false)Boolean random){
-        if (count != null && random != null) {
-            if (studentService.getStudents().size() > count) {
-                if(random){
-                    List<Student> students = studentService.getRandomStudents(count);
-                    model.addAttribute("students", students);
-                    model.addAttribute("actualCount", count);
-                    model.addAttribute("userCount", count);
-                    model.addAttribute("random", true);
-                } else {
-                    List<Student> students = studentService.getLimitedStudents(count);
-                    model.addAttribute("students", students);
-                    model.addAttribute("actualCount", count);
-                    model.addAttribute("userCount", count);
-                    model.addAttribute("random", false);
-                }
-            }
-        } else {
-            List<Student> students = studentService.getStudents();
-            model.addAttribute("students", students);
-            model.addAttribute("actualCount", studentService.getStudents().size());
-            model.addAttribute("userCount", count);
-            model.addAttribute("random", random);
+    public String getStudentList(
+            Model model,
+            @RequestParam(name = "count",required = false, defaultValue = "100")Integer count,
+            @RequestParam(name = "random", required = false, defaultValue = "false")Boolean random
+    ){
+        List<Student> students = studentService.getStudents();
+
+        if (random) {
+            Collections.shuffle(students);
         }
+
+        if (students.size() > count) {
+            List<Student> tempArr = new ArrayList<>();
+            for(int i = 0; i < count; i++) {
+                tempArr.add(students.get(i));
+            }
+            students = tempArr;
+        }
+
+        model.addAttribute("students", students);
+        model.addAttribute("actualCount", students.size());
+        model.addAttribute("userCount", count);
+        model.addAttribute("random", random);
         return "school/studentList";
     }
 

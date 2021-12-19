@@ -71,26 +71,12 @@ public class Student {
 
     @JsonIgnore
     public String getStringSpoken(){
-        StringBuilder stringField = new StringBuilder();
-        for (String string : spokenLanguages) {
-            if (stringField.length() > 0 ){
-                stringField.append(", ");
-            }
-            stringField.append(string);
-        }
-        return stringField.toString();
+        return String.join(", ", spokenLanguages);
     }
 
     @JsonIgnore
     public String getStringProgramming(){
-        StringBuilder stringField = new StringBuilder();
-        for (String string : knownLanguages) {
-            if (stringField.length() > 0 ){
-                stringField.append(", ");
-            }
-            stringField.append(string);
-        }
-        return stringField.toString();
+        return String.join(", ", knownLanguages);
     }
 
     @Override
