@@ -28,6 +28,9 @@ public class Student {
     @Column(name = "lastname")
     private String lastName;
 
+    @Column(name = "email")
+    private String email;
+
     @Column(name = "country")
     private String country;
 
@@ -56,9 +59,10 @@ public class Student {
     @Column(name = "known_languages")
     private Set<String> knownLanguages = new HashSet<>();
 
-    public Student(String firstName, String lastName, String country, String favoriteLanguage, String typeOfStudy, String grade, String university, String faculty, Set<String> spokenLanguages, Set<String> knownLanguages) {
+    public Student(String firstName, String lastName, String email, String country, String favoriteLanguage, String typeOfStudy, String grade, String university, String faculty, Set<String> spokenLanguages, Set<String> knownLanguages) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
         this.country = country;
         this.favoriteLanguage = favoriteLanguage;
         this.typeOfStudy = typeOfStudy;
@@ -82,16 +86,17 @@ public class Student {
     @Override
     public String toString() {
         return "Student{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", country='" + country + '\'' +
-                ", favoriteLanguage='" + favoriteLanguage + '\'' +
-                ", typeOfStudy='" + typeOfStudy + '\'' +
-                ", grade='" + grade + '\'' +
-                ", university='" + university + '\'' +
-                ", faculty='" + faculty + '\'' +
-                ", spokenLanguages=" + spokenLanguages +
-                ", knownLanguages=" + knownLanguages +
+                "First Name: '" + getFirstName() + '\'' +
+                ", Last Name: '" + getLastName() + '\'' +
+                ", Email: '" + getEmail() + '\'' +
+                ", Country: '" + getCountry() + '\'' +
+                ", Favorite Language: '" + getFavoriteLanguage() + '\'' +
+                ", Study Type: '" + getTypeOfStudy() + '\'' +
+                ", Grade: '" + getGrade() + '\'' +
+                ", University: '" + getUniversity() + '\'' +
+                ", Faculty: '" + getFaculty() + '\'' +
+                ", Spoken Languages: " + getSpokenLanguages() +
+                ", Programming Languages: " + getKnownLanguages() +
                 '}';
     }
 }

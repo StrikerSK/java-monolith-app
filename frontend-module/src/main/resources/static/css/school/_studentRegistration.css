@@ -6,7 +6,7 @@ body{
     background-size: cover;
     color: wheat;
     width: 100vw;
-    height: 160vh;
+    height: 165vh;
 }
 
 h3, form {
@@ -21,6 +21,10 @@ input, select {
 .RegisterPage {
     width: 50vw;
     margin: 0 auto;
+}
+
+.RegisterPage h1 {
+    margin-bottom: 2rem;
 }
 
 .input-form__text {
@@ -82,7 +86,7 @@ input, select {
     cursor: pointer;
 }
 
-input[type=text], select{
+input[type=text], input[type=email], select {
     width: 100%;
     padding: 0.8rem;
     border: 0.2rem solid #ccc;
