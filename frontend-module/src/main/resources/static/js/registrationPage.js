@@ -14,10 +14,8 @@ const getFaculties = () => {
  $('#university').change(getFaculties);
 
 $(document).ready(() => {
-    let schoolValue = $('#university').val();
-    if (schoolValue) {
+    if ($('#university').val()) {
         getFaculties();
-        $('#faculty').removeAttr('disabled');
     }
 });
 
@@ -39,10 +37,8 @@ const getGrades = () => {
 $('#typeOfStudy').change(getGrades);
 
 $(document).ready(() => {
-    let schoolValue = $('#typeOfStudy').val();
-    if (schoolValue) {
+    if ($('#typeOfStudy').val()) {
         getGrades();
-        $('#grade').removeAttr('disabled');
     }
 });
 
