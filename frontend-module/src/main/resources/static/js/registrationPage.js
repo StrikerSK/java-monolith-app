@@ -45,3 +45,13 @@ $(document).ready(() => {
         $('#grade').removeAttr('disabled');
     }
 });
+
+$(document).ready(() => {
+    $.getJSON(`https://restcountries.com/v3.1/all`, {
+        ajax : 'true'
+    }, (data) => {
+        let selectOptions = '<option hidden="hidden" value="" selected>Select country of origin</option>';
+        data.map(({name}) => name.common).sort().forEach(item => selectOptions += `<option value=\"${item}\">${item}</option>`)
+        $('#country').html(selectOptions);
+    });
+});

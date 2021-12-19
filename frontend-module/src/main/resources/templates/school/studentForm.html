@@ -73,7 +73,6 @@
                         <label for="country">Select country:</label>
                         <select id="country" th:field="*{country}">
                             <option hidden="hidden" value="">Select country of origin</option>
-                            <option th:each="i : ${countries}" th:text="${i}" th:value="${i}"></option>
                         </select>
                     </div>
 

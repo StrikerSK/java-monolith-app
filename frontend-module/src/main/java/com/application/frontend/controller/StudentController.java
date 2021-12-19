@@ -33,9 +33,6 @@ public class StudentController {
     @Resource
     private final List<String> programingLanguagesList;
 
-    @Resource
-    private final SortedMap<String, String> countryOptions;
-
     private final IStudentService studentService;
 
     private final ISchoolService schoolService;
@@ -44,7 +41,6 @@ public class StudentController {
     public String registerStudent(Model model){
         Student theStudent = new Student();
         model.addAttribute("student", theStudent);
-        model.addAttribute("countries", countryOptions.values());
         model.addAttribute("progLang", programingLanguagesList);
         model.addAttribute("languages", spokenLanguagesList);
         model.addAttribute("universities", schoolService.getAllUniversities().stream().map(University::getName).collect(Collectors.toList()));
@@ -97,7 +93,6 @@ public class StudentController {
     public String getStudentEdit(Model model, @PathVariable("studentId")Long id){
         Student getStudent = studentService.getStudent(id);
         model.addAttribute("universities", schoolService.getAllUniversities().stream().map(University::getName).collect(Collectors.toList()));
-        model.addAttribute("countries", countryOptions.values());
         model.addAttribute("progLang", programingLanguagesList);
         model.addAttribute("languages", spokenLanguagesList);
         model.addAttribute("student", getStudent);
