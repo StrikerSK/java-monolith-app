@@ -6,7 +6,7 @@ body{
     background-size: cover;
     color: wheat;
     width: 100vw;
-    height: 165vh;
+    height: 175vh;
 }
 
 h3, form {
@@ -100,7 +100,7 @@ input[type=text], input[type=email], select {
 @media (max-width: 768px) {
 
     body {
-        height: 220vh;
+        height: 240vh;
     }
 
     .RegisterPage {

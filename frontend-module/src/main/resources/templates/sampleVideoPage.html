@@ -37,12 +37,18 @@
         </header>
 
         <div class="centered-box">
-            <div>
-                <h1>Video in iFrame</h1>
-                <iframe class="resp-iframe" src="https://www.youtube.com/embed/Sagg08DrO5U" allow="encrypted-media" allowfullscreen></iframe>
-            </div>
+            <div id="some-box"></div>
         </div>
 
         <script type="text/javascript" th:src="@{/js/navigationBar.js}"></script>
+        <script type="text/javascript">
+            $(document).ready(() => {
+                const someArray = ["Sagg08DrO5U", "GArzu9ttQ0M", "hVJtPuuQK_s", "MnMa3_o32E8"]
+                const html = `
+                    <h1>Video in iFrame</h1>
+                    <iframe class="resp-iframe" src="https://www.youtube.com/embed/${someArray[Math.floor(Math.random() * someArray.length)]}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+                $('#some-box').html(html)
+            });
+        </script>
     </body>
 </html>

@@ -21,14 +21,14 @@ public class ResourceConfiguration implements WebMvcConfigurer {
 
 	@Bean
 	public List<String> programingLanguagesList() {
-		return Stream.of("C", "C++", "C#", "Objective-C", "Golang", "Java", "Javascript", "Kotlin", "Python", "R",
-				"Ruby", "Rust", "Scala", "Swift", "Typescript").collect(Collectors.toList());
+		return Stream.of("C", "C++", "C#", "Objective-C", "Golang", "Java", "Javascript", "Kotlin", "Python", "R", "PHP",
+				"Ruby", "Rust", "Scala", "SQL", "Swift", "Typescript", "Visual Basic").collect(Collectors.toList());
 	}
 
 	@Bean
 	public List<String> spokenLanguagesList() {
-		return Stream.of("Arabic", "Chinese", "Czech", "Dutch", "English", "French", "German", "Hebrew", "Italian",
-				"Polish", "Portuguese", "Russian", "Slovak", "Spanish", "Vietnamese").collect(Collectors.toList());
+		return Stream.of("Arabic", "Chinese", "Czech", "Dutch", "English", "French", "German", "Hebrew", "Italian", "Japanese",
+				"Korean", "Polish", "Portuguese", "Russian", "Slovak", "Spanish", "Turkish", "Vietnamese").collect(Collectors.toList());
 	}
 
 	@Bean
