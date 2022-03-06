@@ -1,0 +1,75 @@
+@use '_base';
+@use '_navigationBar';
+
+* {
+    color: #EDF5EE;
+}
+
+body{
+    background: url("/image/aboutPageImage.jpeg") no-repeat center center fixed;
+}
+
+.main-body{
+    display: flex;
+    flex-direction: column;
+}
+
+.main-text{
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    margin-top: 1.6rem;
+    font-size: 7rem;
+    margin-bottom: 2rem;
+}
+
+.text-boxes {
+    display: flex;
+    flex-direction: row;
+}
+
+.content-box{
+    width: 40vw;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    justify-self: center;
+    align-self: start;
+}
+.content-box p {
+    margin-bottom: 2rem;
+}
+
+.content-box h2 {
+    font-size: 5.5rem;
+    text-align: center;
+    margin: 0 0 2rem;
+}
+
+@media only screen and (max-width: base.$displayThreshold) {
+
+    body {
+        height: 130vh;
+    }
+
+    .main-text {
+        font-size: 5.5rem;
+    }
+
+    .text-boxes {
+        flex-direction: column;
+    }
+
+    .content-box {
+        width: 90vw;
+        margin-bottom: 3rem;
+    }
+
+    .content-box h2 {
+        font-size: 4rem;
+    }
+
+    .section-header {
+        font-size: 3.5rem;
+    }
+
+}

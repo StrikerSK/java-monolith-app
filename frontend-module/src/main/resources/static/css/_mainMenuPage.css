@@ -1,116 +1,209 @@
+@import url("https://fonts.googleapis.com/css?family=Mali");
 * {
-    color: #EAF0CE;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    background-color: rgb(63, 51, 77);
-    margin: 0 !important;
+html {
+  font-size: 62.5%;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 3.8rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 3.4rem;
+  text-align: center;
+}
+
+h3 {
+  font-size: 3rem;
+  text-align: center;
+}
+
+th, td, a, p, span, strong, input, select, label {
+  font-size: 1.8rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.layout {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  height: 5rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+}
+
+footer {
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.centered-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.link-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.link-box a {
+  color: #EDF5EE;
+}
+
+.link-box a:hover {
+  color: lightslategray;
+}
+
+* {
+  color: #EAF0CE !important;
+}
+
+body {
+  background-color: #3f334d;
+  margin: 0 !important;
 }
 
 /*Nastavenie formatovania kaskady pre mobil*/
 .grid-container {
-    display: flex;
+  display: flex;
+  flex-direction: column;
+}
+
+main .main-text {
+  width: 75%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.main-text h1 {
+  width: 100%;
+  font-size: 6rem;
+  margin-bottom: 3rem;
+  animation: colorchange 6s linear infinite;
+}
+
+.main-text h1, p {
+  text-align: center;
+}
+
+.main-text p, a {
+  font-size: 2.8rem;
+}
+
+main .main-links {
+  width: 75%;
+  height: 12.5rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+@media screen and (max-width: 768px) {
+  main .main-links {
+    height: 20rem;
     flex-direction: column;
+    flex-wrap: nowrap;
+    margin-top: 2rem;
+  }
 }
 
-.main-text{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.main-links a:hover {
+  animation: colorchange 6s linear infinite;
 }
 
-.main-text h1{
-    font-size: 6rem;
-    margin-bottom: 3rem;
-    animation: colorchange 6s linear infinite;
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 5rem !important;
+  }
+
+  p {
+    text-align: center;
+    font-size: 2.5rem;
+  }
+
+  .main-links a {
+    margin-top: 1.5rem;
+  }
+
+  .centered-box > div {
+    width: 100% !important;
+  }
+}
+@keyframes colorchange {
+  0%, 100% {
+    color: #574B60;
+  }
+  25% {
+    color: #7D8491;
+  }
+  50% {
+    color: #C0C5C1;
+  }
+  75% {
+    color: #EAF0CE;
+  }
+}
+/* Link underline animation - START */
+.link {
+  display: flex;
+  justify-content: center;
+  width: 25%;
+  text-decoration: none;
+  background-image: linear-gradient(#EAF0CE, #EAF0CE);
+  background-position: 0 100%;
+  /*OR bottom left*/
+  background-size: 0 2px;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s, background-position 0s 0.3s;
+  /*change after the size immediately*/
+}
+@media screen and (max-width: 768px) {
+  .link {
+    width: 100%;
+  }
 }
 
-.main-text p, a{
-    font-size: 2.8rem;
+.link:hover {
+  cursor: default;
+  background-position: 100% 100%;
+  /*OR bottom right*/
+  background-size: 100% 2px;
 }
 
-.main-links {
-    height: 12.5rem;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-}
+/* Link underline animation - END */
 
-.main-links a:hover{
-    animation: colorchange 6s linear infinite;
-}
-
-.redirect-link {
-    display: flex;
-    justify-content: center;
-    width: 25%;
-}
-
-@media all and (max-width : 768px){
-
-    .main-links {
-        flex-direction: column;
-        flex-wrap: nowrap;
-    }
-
-    h1 {
-        font-size: 5rem !important;
-    }
-
-     p {
-        text-align: center;
-        font-size: 2.5rem;
-    }
-
-     .main-links  {
-         margin-top: 2rem;
-         height: 20rem;
-     }
-
-     .main-links a {
-         margin-top: 1.5rem;
-     }
-
-     .centered-box > div {
-         width: 100% !important;
-     }
-
-    .redirect-link {
-        width: 100%;
-    }
-}
-
-@keyframes colorchange
-{
-    0%,100% {color: #574B60 }
-    25% {color: #7D8491 }
-    50% {color: #C0C5C1 }
-    75% {color: #EAF0CE }
-}
-
-@-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */
-{
-    0%,100% {color: #574B60 }
-    25% {color: #7D8491 }
-    50% {color: #C0C5C1 }
-    75% {color: #EAF0CE }
-}
-
-@-moz-keyframes colorchange /* Firefox */
-{
-    0%,100% {color: #574B60 }
-    25% {color: #7D8491 }
-    50% {color: #C0C5C1 }
-    75% {color: #EAF0CE }
-}
-
-
-@-o-keyframes colorchange /* Opera */
-{
-    0%,100% {color: #574B60 }
-    25% {color: #7D8491 }
-    50% {color: #C0C5C1 }
-    75% {color: #EAF0CE }
-}
+/*# sourceMappingURL=_mainMenuPage.css.map */

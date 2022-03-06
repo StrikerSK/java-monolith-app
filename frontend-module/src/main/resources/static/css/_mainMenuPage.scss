@@ -1,0 +1,112 @@
+@use '_base';
+
+$textColor: #EAF0CE;
+
+* {
+    color: #EAF0CE !important;
+}
+
+body{
+    background-color: rgb(63, 51, 77);
+    margin: 0 !important;
+}
+
+/*Nastavenie formatovania kaskady pre mobil*/
+.grid-container {
+    display: flex;
+    flex-direction: column;
+}
+
+main .main-text{
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.main-text h1{
+    width: 100%;
+    font-size: 6rem;
+    margin-bottom: 3rem;
+    animation: colorchange 6s linear infinite;
+}
+
+.main-text h1, p {
+    text-align: center;
+}
+
+.main-text p, a{
+    font-size: 2.8rem;
+}
+
+main .main-links {
+    width: 75%;
+    height: 12.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and (max-width: base.$displayThreshold) {
+        height: 20rem;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        margin-top: 2rem;
+    }
+}
+
+.main-links a:hover{
+    animation: colorchange 6s linear infinite;
+}
+
+@media screen and (max-width: base.$displayThreshold){
+    h1 {
+        font-size: 5rem !important;
+    }
+
+    p {
+        text-align: center;
+        font-size: 2.5rem;
+    }
+
+    .main-links a {
+        margin-top: 1.5rem;
+    }
+
+    .centered-box > div {
+        width: 100% !important;
+    }
+}
+
+@keyframes colorchange {
+    0%,100% {color: #574B60 }
+    25% {color: #7D8491 }
+    50% {color: #C0C5C1 }
+    75% {color: $textColor }
+}
+
+/* Link underline animation - START */
+.link {
+    display: flex;
+    justify-content: center;
+    width: 25%;
+    text-decoration: none;
+    background-image: linear-gradient($textColor, $textColor);
+    background-position: 0 100%; /*OR bottom left*/
+    background-size: 0 2px;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s,
+    background-position 0s 0.3s; /*change after the size immediately*/
+
+    @media screen and (max-width: base.$displayThreshold) {
+        width: 100%;
+    }
+}
+
+.link:hover {
+    cursor: default;
+    background-position: 100% 100%; /*OR bottom right*/
+    background-size: 100% 2px;
+}
+/* Link underline animation - END */

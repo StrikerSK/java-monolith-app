@@ -1,0 +1,35 @@
+@use '_base';
+@use '_navigationBar';
+
+body{
+    background: url("/image/sampleVideoImage.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+iframe {
+    height: 45rem;
+    width: 60rem;
+}
+
+.resp-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: base.$displayThreshold) {
+
+    iframe {
+        height: 30rem !important;
+        width: 38rem !important;
+    }
+
+}

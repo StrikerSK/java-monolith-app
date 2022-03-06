@@ -4,80 +4,84 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Validation form</title>
 
-        <link rel="stylesheet" th:href="@{/css/_base.css}"/>
-        <link rel="stylesheet" th:href="@{/css/_validationFormPage.css}"/>
-        <link rel="stylesheet" th:href="@{/css/_navigationBar.css}"/>
+        <link rel="stylesheet" th:href="@{/css/validation/_validationFormPage.css}"/>
         <link rel="stylesheet" th:href="@{/webjars/font-awesome/5.15.4/css/fontawesome.min.css}">
 
         <script type="text/javascript" rel="script" th:src="@{/webjars/jquery/3.6.0/dist/jquery.min.js}"></script>
     </head>
 
     <body>
-        <header class="header">
-            <nav class="navbar">
-                <a href="/" class="nav-logo">Application</a>
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="/student/add" class="nav-link">Student form</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/validation/add" class="nav-link">Validation form</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/random" class="nav-link">Random page</a>
-                    </li>
-                </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
+        <div class="layout">
+            <header class="header">
+                <nav class="navbar">
+                    <a href="/" class="nav-logo">Application</a>
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="/student/add" class="nav-link">Student form</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/validation/add" class="nav-link">Validation form</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/random" class="nav-link">Random page</a>
+                        </li>
+                    </ul>
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </nav>
+            </header>
+
+            <main class="main-text">
+                <div class="form-box">
+                    <h1>Validation Form</h1>
+                    <div class="RegForm">
+                        <i>Fill out the form. Asterisk (*) means required.</i>
+                        <form action="#" method="post" th:action="@{/validation/process}" th:object="${validationEntity}">
+                            <div class="inputs">
+                                <div class="inputs__field">
+                                    <label for="firstName"><span>First name:</span></label>
+                                    <input id="firstName" type="text" name="name" th:field="*{firstName}" required/>
+                                    <label th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="hasError">First name Error</label>
+                                </div>
+
+                                <div class="inputs__field">
+                                    <label for="lastName"><span>Last name:</span></label>
+                                    <input id="lastName" type="text" name="name" th:field="*{lastName}" required/>
+                                    <label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="hasError">Surname Error</label>
+                                </div>
+
+                                <div class="inputs__field">
+                                    <label for="freePasses"><span>Free passes:</span></label>
+                                    <input id="freePasses" type="number" name="freePasses" th:field="*{freePasses}" required/>
+                                    <label th:if="${#fields.hasErrors('freePasses')}" th:errors="*{freePasses}" class="hasError">Free Passes Error</label>
+                                </div>
+
+                                <div class="inputs__field">
+                                    <label for="postalCode"><span>Postal code:</span></label>
+                                    <input id="postalCode" type="text" name="postalCode" th:field="*{postalCode}" required/>
+                                    <label th:if="${#fields.hasErrors('postalCode')}" th:errors="*{postalCode}" class="hasError">Postal Code Error</label>
+                                </div>
+
+                                <div class="inputs__field">
+                                    <label for="courseCode"><span>Course code:</span></label>
+                                    <input id="courseCode" type="text" name="courseCode" th:field="*{courseCode}" required/>
+                                    <label th:if="${#fields.hasErrors('courseCode')}" th:errors="*{courseCode}" class="hasError">Course Code Error</label>
+                                </div>
+                            </div>
+                            <div class="submit-box">
+                                <input type="submit" value="Submit validation" class="SubmitButt">
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </nav>
-        </header>
+            </main>
 
-        <div class="main-text">
-            <div class="form-box">
-                <h1>Validation Form</h1>
-                <div class="RegForm">
-                    <i>Fill out the form. Asterisk (*) means required.</i>
-                    <form action="#" method="post" th:action="@{/validation/process}" th:object="${validationEntity}">
-                        <div class="inputs">
-                            <div class="inputs__field">
-                                <label for="firstName"><span>First name:</span></label>
-                                <input id="firstName" type="text" name="name" th:field="*{firstName}" required/>
-                                <label th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="hasError">First name Error</label>
-                            </div>
-
-                            <div class="inputs__field">
-                                <label for="lastName"><span>Last name:</span></label>
-                                <input id="lastName" type="text" name="name" th:field="*{lastName}" required/>
-                                <label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="hasError">Surname Error</label>
-                            </div>
-
-                            <div class="inputs__field">
-                                <label for="freePasses"><span>Free passes:</span></label>
-                                <input id="freePasses" type="number" name="freePasses" th:field="*{freePasses}" required/>
-                                <label th:if="${#fields.hasErrors('freePasses')}" th:errors="*{freePasses}" class="hasError">Free Passes Error</label>
-                            </div>
-
-                            <div class="inputs__field">
-                                <label for="postalCode"><span>Postal code:</span></label>
-                                <input id="postalCode" type="text" name="postalCode" th:field="*{postalCode}" required/>
-                                <label th:if="${#fields.hasErrors('postalCode')}" th:errors="*{postalCode}" class="hasError">Postal Code Error</label>
-                            </div>
-
-                            <div class="inputs__field">
-                                <label for="courseCode"><span>Course code:</span></label>
-                                <input id="courseCode" type="text" name="courseCode" th:field="*{courseCode}" required/>
-                                <label th:if="${#fields.hasErrors('courseCode')}" th:errors="*{courseCode}" class="hasError">Course Code Error</label>
-                            </div>
-                        </div>
-                        <div class="submit-box">
-                            <input type="submit" value="Submit validation" class="SubmitButt">
-                        </div>
-                    </form>
-                </div>
-            </div>
+            <footer>
+                Kristian Hanus @ 2022
+            </footer>
         </div>
 
         <script type="text/javascript" th:src="@{/js/navigationBar.js}"></script>

@@ -4,67 +4,71 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Customer confirmation</title>
 
-        <link rel="stylesheet" th:href="@{/css/_base.css}"/>
-        <link rel="stylesheet" th:href="@{/css/_validationDetailsPage.css}"/>
-        <link rel="stylesheet" th:href="@{/css/_navigationBar.css}"/>
+        <link rel="stylesheet" th:href="@{/css/validation/_validationDetailsPage.css}"/>
         <link rel="stylesheet" th:href="@{/webjars/font-awesome/5.15.4/css/fontawesome.min.css}">
 
         <script type="text/javascript" rel="script" th:src="@{/webjars/jquery/3.6.0/dist/jquery.min.js}"></script>
     </head>
 
     <body>
-        <header class="header">
-            <nav class="navbar">
-                <a href="/" class="nav-logo">Application</a>
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="/student/add" class="nav-link">Student form</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/validation/add" class="nav-link">Validation form</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/random" class="nav-link">Random page</a>
-                    </li>
-                </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </nav>
-        </header>
+        <div class="layout">
+            <header class="header">
+                <nav class="navbar">
+                    <a href="/" class="nav-logo">Application</a>
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="/student/add" class="nav-link">Student form</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/validation/add" class="nav-link">Validation form</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/random" class="nav-link">Random page</a>
+                        </li>
+                    </ul>
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </nav>
+            </header>
 
-        <div class="detailsBox">
-            <div class="validation-result">
-                <h1>Validation details</h1>
-                <div class="ConfirmTable">
-                    <div class="table-cell">
-                        <span>Name:</span>
-                        <div class="cell-value" th:text="${validationEntity.firstName} + ' ' + ${validationEntity.lastName}"></div>
+            <main>
+                <div class="validation-result">
+                    <h1>Validation details</h1>
+                    <div class="ConfirmTable">
+                        <div class="table-cell">
+                            <span>Name</span>
+                            <span class="cell-value" th:text="${validationEntity.firstName} + ' ' + ${validationEntity.lastName}"></span>
+                        </div>
+                        <div class="table-cell">
+                            <span>ID</span>
+                            <span class="cell-value" th:text="${validationEntity.sumNum}"></span>
+                        </div>
+                        <div class="table-cell">
+                            <span>Free passes</span>
+                            <span class="cell-value" th:text="${validationEntity.freePasses}"></span>
+                        </div>
+                        <div class="table-cell">
+                            <span>Postal code</span>
+                            <span class="cell-value" th:text="${validationEntity.postalCode}"></span>
+                        </div>
+                        <div class="table-cell">
+                            <span>Course code</span>
+                            <span class="cell-value" th:text="${validationEntity.courseCode}"></span>
+                        </div>
                     </div>
-                    <div class="table-cell">
-                        <span>ID:</span>
-                        <div class="cell-value" th:text="${validationEntity.sumNum}"></div>
-                    </div>
-                    <div class="table-cell">
-                        <span>Free passes:</span>
-                        <div class="cell-value" th:text="${validationEntity.freePasses}"></div>
-                    </div>
-                    <div class="table-cell">
-                        <span>Postal code:</span>
-                        <div class="cell-value" th:text="${validationEntity.postalCode}"></div>
-                    </div>
-                    <div class="table-cell">
-                        <span>Course code:</span>
-                        <div class="cell-value" th:text="${validationEntity.courseCode}"></div>
+                    <div class="CustomerLink">
+                        <a href="/validation/add" class="Link2">New validation</a>
+                        <a href="/" class="Link2">Main menu</a>
                     </div>
                 </div>
-                <div class="CustomerLink">
-                    <a href="/validation/add" class="Link2">Try new validation!</a>
-                    <a href="/" class="Link2">Go to main menu!</a>
-                </div>
-            </div>
+            </main>
+
+            <footer>
+                Kristian Hanus @ 2022
+            </footer>
         </div>
 
         <script type="text/javascript" th:src="@{/js/navigationBar.js}"></script>

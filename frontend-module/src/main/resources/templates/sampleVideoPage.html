@@ -5,8 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Video show</title>
-        <link rel="stylesheet" th:href="@{/css/_base.css}"/>
-        <link rel="stylesheet" th:href="@{/css/_navigationBar.css}"/>
         <link rel="stylesheet" th:href="@{/css/_sampleVideoPage.css}"/>
         <link rel="stylesheet" th:href="@{/webjars/font-awesome/5.15.4/css/fontawesome.min.css}">
 
@@ -14,30 +12,36 @@
     </head>
 
     <body>
-        <header class="header">
-            <nav class="navbar">
-                <a href="/" class="nav-logo">Application</a>
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="/student/add" class="nav-link">Student form</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/validation/add" class="nav-link">Validation form</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/random" class="nav-link">Random page</a>
-                    </li>
-                </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </nav>
-        </header>
+        <div class="layout">
+            <header class="header">
+                <nav class="navbar">
+                    <a href="/" class="nav-logo">Application</a>
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="/student/add" class="nav-link">Student form</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/validation/add" class="nav-link">Validation form</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/random" class="nav-link">Random page</a>
+                        </li>
+                    </ul>
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </nav>
+            </header>
 
-        <div class="centered-box">
-            <div id="some-box"></div>
+            <main>
+                <div id="some-box"></div>
+            </main>
+
+            <footer>
+                Kristian Hanus @ 2022
+            </footer>
         </div>
 
         <script type="text/javascript" th:src="@{/js/navigationBar.js}"></script>

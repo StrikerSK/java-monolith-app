@@ -1,14 +1,15 @@
+@use '../base';
+@use '../navigationBar';
+
 body {
-    background: url("../image/customer-reg.jpg") no-repeat center center fixed;
+    background: url("/image/customer-reg.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     color: wheat;
 
-    height: 100vh;
-    width: 100vw;
-    margin: 0 !important;
+    width: auto;
 }
 
 /*Registration page of customer registration form*/
@@ -66,7 +67,11 @@ body {
 }
 
 .SubmitButt{
-    font-size: 1.25rem;
+    width: 18rem;
+    padding: 1rem 1rem;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
 }
 
 .inputs input[type=text], input[type=number], .inputs select{

@@ -1,123 +1,378 @@
-body{
-    background: url('/image/sum-image.png') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    color: wheat;
-    width: 100vw;
-    height: 175vh;
+@import url("https://fonts.googleapis.com/css?family=Mali");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 3.8rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 3.4rem;
+  text-align: center;
+}
+
+h3 {
+  font-size: 3rem;
+  text-align: center;
+}
+
+th, td, a, p, span, strong, input, select, label {
+  font-size: 1.8rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.layout {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  height: 5rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+}
+
+footer {
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.centered-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.link-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.link-box a {
+  color: #EDF5EE;
+}
+
+.link-box a:hover {
+  color: lightslategray;
+}
+
+li {
+  list-style: none;
+}
+
+.header {
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.navbar {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: #EDF5EE;
+}
+
+.hamburger {
+  display: none;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #101010;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media only screen and (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 5rem;
+    flex-direction: column;
+    background-color: #fff;
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.nav-item {
+  margin-left: 5rem;
+}
+
+.nav-link {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #475569;
+}
+.nav-link.hover {
+  color: #482ff7;
+}
+
+.nav-logo {
+  font-size: 2.1rem;
+  font-weight: 500;
+  color: #482ff7;
+}
+
+@media only screen and (max-width: 768px) {
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .nav-item {
+    margin: 2.5rem 0;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+* {
+  color: #EDF5EE;
+}
+
+body {
+  background: url("/image/aboutPageImage.jpeg") no-repeat center center fixed;
+}
+
+.main-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-text {
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+  margin-top: 1.6rem;
+  font-size: 7rem;
+  margin-bottom: 2rem;
+}
+
+.text-boxes {
+  display: flex;
+  flex-direction: row;
+}
+
+.content-box {
+  width: 40vw;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  justify-self: center;
+  align-self: start;
+}
+
+.content-box p {
+  margin-bottom: 2rem;
+}
+
+.content-box h2 {
+  font-size: 5.5rem;
+  text-align: center;
+  margin: 0 0 2rem;
+}
+
+@media (max-width: 768px) {
+  body {
+    height: 140vh;
+  }
+
+  .main-text {
+    font-size: 5.5rem;
+  }
+
+  .text-boxes {
+    flex-direction: column;
+  }
+
+  .content-box {
+    width: 90vw;
+    margin-bottom: 3rem;
+  }
+
+  .content-box h2 {
+    font-size: 4rem;
+  }
+
+  .section-header {
+    font-size: 3.5rem;
+  }
+}
+body {
+  background: url("/image/sum-image.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: wheat !important;
+  height: 175vh !important;
+  width: auto;
 }
 
 h3, form {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 input, select {
-    color: black;
+  color: black;
 }
 
 /*Student registration form*/
 .RegisterPage {
-    width: 50vw;
-    margin: 0 auto;
+  width: 50%;
+  margin: 0 auto;
 }
 
 .RegisterPage h1 {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .input-form__text {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .input-box__text {
-    width: 49%;
+  width: 49%;
 }
 
 .language-option-section {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .radio-grid {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .radio-grid-item {
-    width: 30%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .radio-label {
-    display: inline-block;
-    vertical-align: top;
-    margin-right: 5%;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 5%;
 }
 
 .radio-input {
-    display: inline-block;
-    vertical-align: top;
-    width: 3rem;
-    height: 1.5rem;
+  display: inline-block;
+  vertical-align: top;
+  width: 3rem;
+  height: 1.5rem;
 }
 
 .select-options {
-    width: 100%;
+  width: 100%;
 }
 
-.submit-container{
-    display: flex;
-    justify-content: center;
+.submit-container {
+  display: flex;
+  justify-content: center;
 }
 
-#submit-button{
-    width: 15rem;
-    padding: 1rem 1rem;
-    border: none;
-    border-radius: 1rem;
-    cursor: pointer;
+#submit-button {
+  width: 15rem;
+  padding: 1rem 1rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
 }
 
 input[type=text], input[type=email], select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 0.2rem solid #ccc;
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+  margin-top: 0.6rem;
+  margin-bottom: 1.6rem;
+  resize: vertical;
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    height: 215vh !important;
+  }
+
+  .RegisterPage {
+    width: 90vw;
+    margin: 0;
+  }
+
+  .input-form__text {
+    flex-direction: column;
+  }
+
+  .input-box__text {
     width: 100%;
-    padding: 0.8rem;
-    border: 0.2rem solid #ccc;
-    border-radius: 1.5rem;
-    box-sizing: border-box;
-    margin-top: 0.6rem;
-    margin-bottom: 1.6rem;
-    resize: vertical;
+  }
+
+  .radio-grid-item {
+    width: 50%;
+  }
 }
 
-@media (max-width: 768px) {
-
-    body {
-        height: 240vh;
-    }
-
-    .RegisterPage {
-        width: 90vw;
-        margin: 0;
-    }
-
-    .input-form__text {
-        flex-direction: column;
-    }
-
-    .input-box__text {
-        width: 100%;
-    }
-
-    .radio-grid-item {
-        width: 50%;
-    }
-
-}
+/*# sourceMappingURL=_studentRegistration.css.map */

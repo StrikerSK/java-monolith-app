@@ -182,76 +182,130 @@ li {
     transform: translateY(-8px) rotate(-45deg);
   }
 }
-* {
-  color: #EDF5EE;
-}
-
 body {
-  background: url("/image/aboutPageImage.jpeg") no-repeat center center fixed;
+  background: url("/image/customer-reg.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: wheat;
+  width: auto;
 }
 
-.main-body {
-  display: flex;
-  flex-direction: column;
-}
-
+/*Registration page of customer registration form*/
 .main-text {
-  justify-self: center;
-  align-self: center;
-  text-align: center;
-  margin-top: 1.6rem;
-  font-size: 7rem;
-  margin-bottom: 2rem;
-}
-
-.text-boxes {
+  height: 95vh;
+  background: rgba(50, 29, 38, 0.3);
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
-.content-box {
-  width: 40vw;
-  margin-left: 3rem;
-  margin-right: 3rem;
-  justify-self: center;
-  align-self: start;
+.form-box {
+  width: 40%;
+  height: max-content;
 }
 
-.content-box p {
-  margin-bottom: 2rem;
-}
-
-.content-box h2 {
-  font-size: 5.5rem;
+.form-box h1 {
   text-align: center;
-  margin: 0 0 2rem;
+  font-size: 3.5rem;
 }
 
-@media only screen and (max-width: 768px) {
-  body {
-    height: 130vh;
-  }
+.form-box i {
+  font-size: 1.4rem;
+}
 
+.inputs__field label {
+  font-size: 2.5rem;
+}
+
+.inputs__field input {
+  font-size: 1.6rem;
+}
+
+.form-box a {
+  position: relative;
+  left: 30%;
+  color: bisque;
+}
+
+.form-box a:hover {
+  color: wheat;
+}
+
+.RegForm {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.submit-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding-top: 20px;
+}
+
+.SubmitButt {
+  width: 18rem;
+  padding: 1rem 1rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.inputs input[type=text], input[type=number], .inputs select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.hasError {
+  color: red;
+  display: block;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.noError {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  /*Registration page of customer registration form*/
   .main-text {
-    font-size: 5.5rem;
+    width: 100vw;
+    align-content: center;
+    /*background: none;*/
   }
 
-  .text-boxes {
-    flex-direction: column;
+  .form-box {
+    width: 100%;
+    height: max-content;
   }
 
-  .content-box {
-    width: 90vw;
-    margin-bottom: 3rem;
+  .form-box h1 {
+    text-align: center;
+    margin: 3rem 1rem;
   }
 
-  .content-box h2 {
-    font-size: 4rem;
+  .form-box a {
+    position: relative;
+    left: 30%;
+    color: black;
   }
 
-  .section-header {
-    font-size: 3.5rem;
+  .form-box a:hover {
+    color: wheat;
+  }
+
+  .RegForm {
+    width: 90%;
+    margin: 0 auto;
   }
 }
 
-/*# sourceMappingURL=_aboutPage.css.map */
+/*# sourceMappingURL=_validationFormPage.css.map */
